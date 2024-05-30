@@ -71,9 +71,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.Location = new System.Drawing.Point(0, 542);
             this.btnExit.Name = "btnExit";
@@ -90,6 +88,7 @@
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelMenu);
+            this.MinimumSize = new System.Drawing.Size(900, 650);
             this.Name = "MainWindow";
             this.Text = "Modelarz";
             this.panelMenu.ResumeLayout(false);
