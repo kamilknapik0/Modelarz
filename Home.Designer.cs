@@ -28,32 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.labelHome = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
+            // panelTop
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(145, 174);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(428, 55);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "EKRAN GLOWNY";
+            this.panelTop.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panelTop.Controls.Add(this.labelHome);
+            this.panelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.panelTop.Location = new System.Drawing.Point(12, 12);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(673, 84);
+            this.panelTop.TabIndex = 0;
+            this.panelTop.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(12, 102);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(673, 120);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(12, 228);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(673, 228);
+            this.panel3.TabIndex = 2;
+            // 
+            // labelHome
+            // 
+            this.labelHome.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHome.Location = new System.Drawing.Point(266, 0);
+            this.labelHome.Name = "labelHome";
+            this.labelHome.Size = new System.Drawing.Size(122, 25);
+            this.labelHome.TabIndex = 0;
+            this.labelHome.Text = "Ekran Główny";
+            this.labelHome.Click += new System.EventHandler(this.labelHome_Click);
             // 
             // Home
             // 
             this.ClientSize = new System.Drawing.Size(697, 468);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelTop);
             this.Name = "Home";
+            this.panelTop.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.Label labelHome;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
