@@ -19,7 +19,7 @@ namespace Modelarz
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Close();
+            Close(); //komentarz
         }
     }
 }
