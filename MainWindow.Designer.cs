@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.buttonExport = new System.Windows.Forms.Button();
+            this.buttonImport = new System.Windows.Forms.Button();
+            this.buttonEdycja = new System.Windows.Forms.Button();
             this.buttonKatalog = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonHome = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.buttonEdycja = new System.Windows.Forms.Button();
-            this.buttonImport = new System.Windows.Forms.Button();
-            this.buttonExport = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,34 @@
             this.panelMenu.Size = new System.Drawing.Size(224, 613);
             this.panelMenu.TabIndex = 1;
             // 
+            // buttonExport
+            // 
+            this.buttonExport.Location = new System.Drawing.Point(13, 232);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(153, 44);
+            this.buttonExport.TabIndex = 6;
+            this.buttonExport.Text = "Eksportuj dane";
+            this.buttonExport.UseVisualStyleBackColor = true;
+            // 
+            // buttonImport
+            // 
+            this.buttonImport.Location = new System.Drawing.Point(13, 182);
+            this.buttonImport.Name = "buttonImport";
+            this.buttonImport.Size = new System.Drawing.Size(153, 44);
+            this.buttonImport.TabIndex = 5;
+            this.buttonImport.Text = "Importuj dane";
+            this.buttonImport.UseVisualStyleBackColor = true;
+            // 
+            // buttonEdycja
+            // 
+            this.buttonEdycja.Location = new System.Drawing.Point(13, 132);
+            this.buttonEdycja.Name = "buttonEdycja";
+            this.buttonEdycja.Size = new System.Drawing.Size(153, 44);
+            this.buttonEdycja.TabIndex = 4;
+            this.buttonEdycja.Text = "Edycja pacjentów";
+            this.buttonEdycja.UseVisualStyleBackColor = true;
+            this.buttonEdycja.Click += new System.EventHandler(this.buttonEdycja_Click);
+            // 
             // buttonKatalog
             // 
             this.buttonKatalog.Location = new System.Drawing.Point(13, 82);
@@ -67,6 +95,7 @@
             this.buttonKatalog.TabIndex = 3;
             this.buttonKatalog.Text = "Katalog pacjentów";
             this.buttonKatalog.UseVisualStyleBackColor = true;
+            this.buttonKatalog.Click += new System.EventHandler(this.buttonKatalog_Click);
             // 
             // label1
             // 
@@ -122,33 +151,6 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(713, 507);
             this.panelMain.TabIndex = 3;
-            // 
-            // buttonEdycja
-            // 
-            this.buttonEdycja.Location = new System.Drawing.Point(13, 132);
-            this.buttonEdycja.Name = "buttonEdycja";
-            this.buttonEdycja.Size = new System.Drawing.Size(153, 44);
-            this.buttonEdycja.TabIndex = 4;
-            this.buttonEdycja.Text = "Edycja pacjentów";
-            this.buttonEdycja.UseVisualStyleBackColor = true;
-            // 
-            // buttonImport
-            // 
-            this.buttonImport.Location = new System.Drawing.Point(13, 182);
-            this.buttonImport.Name = "buttonImport";
-            this.buttonImport.Size = new System.Drawing.Size(153, 44);
-            this.buttonImport.TabIndex = 5;
-            this.buttonImport.Text = "Importuj dane";
-            this.buttonImport.UseVisualStyleBackColor = true;
-            // 
-            // buttonExport
-            // 
-            this.buttonExport.Location = new System.Drawing.Point(13, 232);
-            this.buttonExport.Name = "buttonExport";
-            this.buttonExport.Size = new System.Drawing.Size(153, 44);
-            this.buttonExport.TabIndex = 6;
-            this.buttonExport.Text = "Eksportuj dane";
-            this.buttonExport.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 

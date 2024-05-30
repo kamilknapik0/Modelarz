@@ -15,6 +15,60 @@ namespace Modelarz
         public MainWindow()
         {
             InitializeComponent();
+
+            openHome();
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close(); 
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            closeForms();
+
+            openHome();
+            
+        }
+
+        private void buttonKatalog_Click(object sender, EventArgs e)
+        {
+            closeForms();
+
+            openKatalog();
+
+        }
+
+        private void buttonEdycja_Click(object sender, EventArgs e)
+        {
+            closeForms();
+
+            openEdycja();
+
+        }
+
+        void closeForms()
+        {
+            List<Form> formsToClose = new List<Form>();
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm is Home || frm is Katalog || frm is Edycja)
+                {
+                    formsToClose.Add(frm);
+                }
+            }
+
+            foreach (Form frm in formsToClose)
+            {
+                frm.Close();
+            }
+        }
+
+        void openHome()
+        {
             Home frm = new Home()
             {
                 TopLevel = false,
@@ -25,26 +79,30 @@ namespace Modelarz
             frm.Show();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        void openKatalog()
         {
-            Close(); 
-       
-            //komentarz
-            //komentarz
+            Katalog frm = new Katalog()
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill
+            };
+            frm.FormBorderStyle = FormBorderStyle.None;
+            this.panelMain.Controls.Add(frm);
+            frm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void openEdycja()
         {
+            Edycja frm = new Edycja()
             {
-                Home frm = new Home()
-                {
-                    TopLevel = false,
-                    Dock = DockStyle.Fill
-                };
-                frm.FormBorderStyle = FormBorderStyle.None;
-                this.panelMain.Controls.Add(frm);
-                frm.Show();
-            }
+                TopLevel = false,
+                Dock = DockStyle.Fill
+            };
+            frm.FormBorderStyle = FormBorderStyle.None;
+            this.panelMain.Controls.Add(frm);
+            frm.Show();
         }
+
+
     }
 }
