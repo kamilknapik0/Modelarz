@@ -55,7 +55,7 @@
             this.panelTop.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panelTop.Location = new System.Drawing.Point(171, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(713, 134);
+            this.panelTop.Size = new System.Drawing.Size(713, 110);
             this.panelTop.TabIndex = 2;
             // 
             // panelMain
@@ -75,9 +75,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(0, 558);
+            this.btnExit.Location = new System.Drawing.Point(0, 542);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(174, 31);
+            this.btnExit.Size = new System.Drawing.Size(174, 35);
             this.btnExit.TabIndex = 0;
             this.btnExit.Text = "zakoncz";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -98,11 +98,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 
