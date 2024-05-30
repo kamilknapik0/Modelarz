@@ -15,15 +15,26 @@ namespace Modelarz
         public MainWindow()
         {
             InitializeComponent();
-            
+            Home frm = new Home()
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill
+            };
+            frm.FormBorderStyle = FormBorderStyle.None;
+            this.panelMain.Controls.Add(frm);
+            frm.Show();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        void openKatalog()
         {
-            Close(); 
-       
-            //komentarz
-            //komentarz
+            Katalog frm = new Katalog()
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill
+            };
+            frm.FormBorderStyle = FormBorderStyle.None;
+            this.panelMain.Controls.Add(frm);
+            frm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,6 +50,5 @@ namespace Modelarz
                 frm.Show();
             }
         }
-
     }
 }

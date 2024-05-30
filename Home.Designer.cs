@@ -84,7 +84,7 @@
             // 
             // Home
             // 
-            this.ClientSize = new System.Drawing.Size(697, 468);
+            this.ClientSize = new System.Drawing.Size(694, 461);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelTop);
