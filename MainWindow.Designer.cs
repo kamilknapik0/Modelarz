@@ -93,9 +93,9 @@
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(0, 542);
+            this.btnExit.Location = new System.Drawing.Point(13, 555);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(174, 35);
+            this.btnExit.Size = new System.Drawing.Size(153, 44);
             this.btnExit.TabIndex = 0;
             this.btnExit.Text = "Zakończ";
             this.btnExit.UseVisualStyleBackColor = true;
