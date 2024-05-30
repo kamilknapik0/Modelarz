@@ -15,14 +15,7 @@ namespace Modelarz
         public MainWindow()
         {
             InitializeComponent();
-            Home frm = new Home()
-            {
-                TopLevel = false,
-                Dock = DockStyle.Fill
-            };
-            frm.FormBorderStyle = FormBorderStyle.None;
-            this.panelMain.Controls.Add(frm);
-            frm.Show();
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
