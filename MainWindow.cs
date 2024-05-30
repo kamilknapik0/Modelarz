@@ -31,7 +31,7 @@ namespace Modelarz
                 Home frm = new Home()
                 {
                     TopLevel = false,
-                    TopMost = true
+                    Dock = DockStyle.Fill
                 };
                 frm.FormBorderStyle = FormBorderStyle.None;
                 this.panelMain.Controls.Add(frm);
