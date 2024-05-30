@@ -28,7 +28,7 @@ namespace Modelarz
         private void button1_Click(object sender, EventArgs e)
         {
             {
-                Form2 frm = new Form2()
+                Home frm = new Home()
                 {
                     TopLevel = false,
                     TopMost = true
