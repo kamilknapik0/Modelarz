@@ -24,5 +24,19 @@ namespace Modelarz
             //komentarz
             //komentarz
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            {
+                Form2 frm = new Form2()
+                {
+                    TopLevel = false,
+                    TopMost = true
+                };
+                frm.FormBorderStyle = FormBorderStyle.None;
+                this.panelMain.Controls.Add(frm);
+                frm.Show();
+            }
+        }
     }
 }

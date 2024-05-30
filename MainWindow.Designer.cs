@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,11 +42,24 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMenu.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panelMenu.Controls.Add(this.button1);
             this.panelMenu.Controls.Add(this.btnExit);
             this.panelMenu.Location = new System.Drawing.Point(-1, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(224, 613);
             this.panelMenu.TabIndex = 1;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.Location = new System.Drawing.Point(0, 542);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(174, 35);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.Text = "zakoncz";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // panelTop
             // 
@@ -69,17 +83,15 @@
             this.panelMain.Size = new System.Drawing.Size(713, 507);
             this.panelMain.TabIndex = 3;
             // 
-            // btnExit
+            // button1
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(0, 542);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(174, 35);
-            this.btnExit.TabIndex = 0;
-            this.btnExit.Text = "zakoncz";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.button1.Location = new System.Drawing.Point(22, 53);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Menu1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainWindow
             // 
@@ -101,6 +113,7 @@
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button button1;
     }
 }
 
