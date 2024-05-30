@@ -1,4 +1,7 @@
-﻿namespace Modelarz
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
+
+namespace Modelarz
 {
     partial class MainWindow
     {
@@ -36,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonHome = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.panelTop = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +58,7 @@
             this.panelMenu.Controls.Add(this.btnExit);
             this.panelMenu.Location = new System.Drawing.Point(-1, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(224, 613);
+            this.panelMenu.Size = new System.Drawing.Size(172, 613);
             this.panelMenu.TabIndex = 1;
             // 
             // buttonExport
@@ -130,26 +132,15 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // panelTop
-            // 
-            this.panelTop.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelTop.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panelTop.Location = new System.Drawing.Point(171, 0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(713, 110);
-            this.panelTop.TabIndex = 2;
-            // 
             // panelMain
             // 
             this.panelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMain.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelMain.Location = new System.Drawing.Point(171, 106);
+            this.panelMain.Location = new System.Drawing.Point(171, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(713, 507);
+            this.panelMain.Size = new System.Drawing.Size(713, 613);
             this.panelMain.TabIndex = 3;
             // 
             // MainWindow
@@ -157,7 +148,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(884, 611);
             this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelMenu);
             this.MinimumSize = new System.Drawing.Size(900, 650);
             this.Name = "MainWindow";
@@ -170,7 +160,6 @@
 
         #endregion
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button buttonHome;
@@ -179,6 +168,7 @@
         private System.Windows.Forms.Button buttonEdycja;
         private System.Windows.Forms.Button buttonExport;
         private System.Windows.Forms.Button buttonImport;
+
     }
 }
 

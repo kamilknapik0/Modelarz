@@ -52,6 +52,12 @@
     <Compile Include="Edycja.Designer.cs">
       <DependentUpon>Edycja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Wizyty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizyty.Designer.cs">
+      <DependentUpon>Wizyty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Wizyty.resx">
+      <DependentUpon>Wizyty.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

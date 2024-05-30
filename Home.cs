@@ -15,24 +15,12 @@ namespace Modelarz
         public Home()
         {
             InitializeComponent();
-            panelTop.Controls.Add(labelHome);
             InitializeTimer();
+            FillCalendar(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month);
+            AddCallendarEvent(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month);
         }
 
-        private void labelHome_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+        Dictionary<DateTime, List<string>> appointments = new Dictionary<DateTime, List<string>>();
 
         private void InitializeTimer()
         {
@@ -43,7 +31,90 @@ namespace Modelarz
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            labelDate.Text = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
+            labelDate.Text = DateTime.Now.ToString("d MMMM yyyy HH:mm");
+        }
+
+        public void FillCalendar(TableLayoutPanel tableLayoutPanel1, int year, int month)
+        {
+            DateTime firstDateOfMonth = new DateTime(year, month, 1);
+            int daysInMonth = DateTime.DaysInMonth(year, month);
+            int dayOfWeek = ((int)firstDateOfMonth.DayOfWeek + 6) % 7;
+
+            int currentRowIndex = 1;
+            int currentColumnIndex = dayOfWeek;
+
+            for(int day = 1; day <= daysInMonth; day++)
+            {
+                Label dayLabel = new Label
+                {
+                    Text = day.ToString(),
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Dock = DockStyle.Fill
+                };
+
+                tableLayoutPanel1.Controls.Add(dayLabel, currentColumnIndex, currentRowIndex);
+
+                currentColumnIndex++;
+
+                if(currentColumnIndex > 6)
+                {
+                    currentColumnIndex = 0;
+                    currentRowIndex++;
+                }
+
+                if(day == DateTime.Now.Day)
+                {
+                    dayLabel.BackColor = Color.FromArgb(227, 227, 227);
+                    dayLabel.Dock = DockStyle.Fill;
+                    dayLabel.Margin = new Padding(0);
+                }
+            }
+        }
+
+        public void AddCallendarEvent(TableLayoutPanel tableLayoutPanel1, int year, int month) 
+        { 
+            foreach(Control control in tableLayoutPanel1.Controls)
+            {
+                if(control is Label label && label.Text != "")
+                {
+                    label.Click += (sender, e) =>
+                    {
+                        Label clickedLabel = sender as Label;
+                        DateTime selectedDate = new DateTime(year, month, int.Parse(clickedLabel.Text));
+                        //dodac wywolanie formularza do dodania wizyty
+                        AddCallendarAppointment(selectedDate);
+                    };
+                }
+            }
+        }
+
+        public void AddCallendarAppointment(DateTime selectedDate)
+        {
+            using (Wizyty wizyty = new Wizyty(selectedDate))
+            {
+                wizyty.ShowDialog();
+                if(wizyty.DialogResult == DialogResult.OK)
+                {
+                    //tu sie bedzie dodawalo wizyte w formularzu wizyta
+                    //zapisuje z formularza do pliku/bazy i zaznacza to na kalendarzu
+                }
+            }
+        }
+
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void labelDate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelThur_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
