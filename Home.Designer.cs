@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.labelDate = new System.Windows.Forms.Label();
             this.labelHome = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.labelDate = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
@@ -51,12 +51,19 @@
             this.panelTop.TabIndex = 0;
             this.panelTop.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // labelDate
+            // 
+            this.labelDate.Location = new System.Drawing.Point(0, 0);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(212, 23);
+            this.labelDate.TabIndex = 0;
+            // 
             // labelHome
             // 
             this.labelHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHome.Location = new System.Drawing.Point(275, 0);
+            this.labelHome.Location = new System.Drawing.Point(266, 0);
             this.labelHome.Name = "labelHome";
-            this.labelHome.Size = new System.Drawing.Size(150, 25);
+            this.labelHome.Size = new System.Drawing.Size(122, 25);
             this.labelHome.TabIndex = 0;
             this.labelHome.Text = "Ekran Główny";
             this.labelHome.Click += new System.EventHandler(this.labelHome_Click);
@@ -75,16 +82,6 @@
             this.panel3.Size = new System.Drawing.Size(673, 228);
             this.panel3.TabIndex = 2;
             // 
-            // labelHome
-            // 
-            this.labelHome.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHome.Location = new System.Drawing.Point(266, 0);
-            this.labelHome.Name = "labelHome";
-            this.labelHome.Size = new System.Drawing.Size(122, 25);
-            this.labelHome.TabIndex = 0;
-            this.labelHome.Text = "Ekran Główny";
-            this.labelHome.Click += new System.EventHandler(this.labelHome_Click);
-            // 
             // Home
             // 
             this.ClientSize = new System.Drawing.Size(697, 468);
@@ -93,7 +90,6 @@
             this.Controls.Add(this.panelTop);
             this.Name = "Home";
             this.panelTop.ResumeLayout(false);
-            this.panelTop.PerformLayout();
             this.ResumeLayout(false);
 
         }
