@@ -22,6 +22,7 @@ namespace Modelarz
             Close(); 
        
             //komentarz
+            //komentarz
         }
     }
 }
