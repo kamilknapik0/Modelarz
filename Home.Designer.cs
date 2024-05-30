@@ -28,17 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelTop = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelHome = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.labelDate = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panelTop.Controls.Add(this.labelDate);
             this.panelTop.Controls.Add(this.labelHome);
             this.panelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.panelTop.Location = new System.Drawing.Point(12, 12);
@@ -63,22 +67,40 @@
             // 
             // labelHome
             // 
+            this.labelHome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelHome.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHome.Location = new System.Drawing.Point(266, 0);
+            this.labelHome.Location = new System.Drawing.Point(0, 0);
             this.labelHome.Name = "labelHome";
-            this.labelHome.Size = new System.Drawing.Size(122, 25);
+            this.labelHome.Size = new System.Drawing.Size(673, 84);
             this.labelHome.TabIndex = 0;
             this.labelHome.Text = "Ekran Główny";
             this.labelHome.Click += new System.EventHandler(this.labelHome_Click);
             // 
+            // labelDate
+            // 
+            this.labelDate.AutoSize = true;
+            this.labelDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelDate.Location = new System.Drawing.Point(261, 31);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(46, 20);
+            this.labelDate.TabIndex = 1;
+            this.labelDate.Text = "label2";
+            this.labelDate.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Home
             // 
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(697, 468);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelTop);
             this.Name = "Home";
             this.panelTop.ResumeLayout(false);
+            this.panelTop.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -91,5 +113,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label labelDate;
+        private System.Windows.Forms.Timer timer1;
     }
 }
