@@ -97,29 +97,37 @@ namespace Modelarz
                 string fileName = "visits.txt";
                 string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
                 string filePath = directoryPath + fileName;
-                string[] lines = File.ReadAllLines(filePath); //wszystkie linie z pliku
-                int row = 0;
+                string [,] dataArray = LoadDataToArray(filePath);
+                string[,] newDataArray = SortDatesClosestToToday(dataArray);
 
-                foreach (var line in lines)
+                tableLayoutPanel2.Controls.Clear();
+                tableLayoutPanel2.RowStyles.Clear();
+                tableLayoutPanel2.ColumnCount = 3;
+                tableLayoutPanel2.RowCount = 2;
+
+
+                for (int i = 0; i < newDataArray.GetLength(0); i++)
                 {
-                    string[] elements = line.Split(';'); //rozdzielenie linii na elementy
-
-                    if (row == 0)
-                    {
-                        // Dodajemy etykiety z nazwami kolumn do pierwszego wiersza
-                        for (int column = 0; column < elements.Length - 1; column++)
+                        Label label = new Label
                         {
-                            Label label = new Label
-                            {
-                                Text = elements[0],
-                                TextAlign = ContentAlignment.MiddleCenter,
-                                Dock = DockStyle.Fill
-                            };
-                            tableLayoutPanel2.Controls.Add(label, column, row);
-                        }
-                    }
-                    
+                            Text = newDataArray[i, 0],
+                            TextAlign = ContentAlignment.MiddleCenter,
+                            Dock = DockStyle.Fill
+                        };
+                        tableLayoutPanel2.Controls.Add(label, i, 0); // Dodajemy etykietę do odpowiedniej kolumny i wiersza
                 }
+
+                for (int i = 0; i < newDataArray.GetLength(0); i++)
+                {
+                    Label label = new Label
+                    {
+                        Text = newDataArray[i, 1] + " " + newDataArray[i, 2] + "\n Godzina: " + newDataArray[i, 3],
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Dock = DockStyle.Fill
+                    };
+                    tableLayoutPanel2.Controls.Add(label, i, 1); // Dodajemy etykietę do odpowiedniej kolumny i wiersza
+                }
+
             }
         }
 
@@ -135,6 +143,61 @@ namespace Modelarz
                 }
             }
         }
+
+        public string[,] LoadDataToArray(string filePath)
+        {
+            string[] lines = File.ReadAllLines(filePath);
+            int rows = lines.Length;
+            int columns = lines[0].Split(';').Length;
+
+            string[,] dataArray = new string[rows, columns];
+
+            for (int i = 0; i < rows; i++)
+            {
+                string[] elements = lines[i].Split(';');
+                for (int j = 0; j < columns; j++)
+                {
+                    dataArray[i, j] = elements[j];
+                }
+            }
+            return dataArray;
+        }
+
+        public string[,] SortDatesClosestToToday(string[,] dataArray)
+        {
+            DateTime today = DateTime.Now.Date; // Pobranie dzisiejszej daty bez czasu
+            int rows = dataArray.GetLength(0);
+            int columns = dataArray.GetLength(1);
+
+            // Konwersja dat z tablicy na DateTime i obliczenie różnicy dni względem dzisiejszej daty
+            List<Tuple<DateTime, int>> datesWithIndex = new List<Tuple<DateTime, int>>();
+            for (int i = 0; i < rows; i++)
+            {
+                DateTime date = DateTime.ParseExact(dataArray[i, 0], "dd-MM-yyyy", null); // Konwersja daty
+                if (date >= today) // Uwzględniamy tylko daty dzisiejsze lub późniejsze
+                {
+                    datesWithIndex.Add(new Tuple<DateTime, int>(date, i));
+                }
+            }
+
+            // Sortowanie listy dat względem różnicy dni (najbliższe dzisiejszej dacie będą na początku)
+            datesWithIndex.Sort((a, b) => (a.Item1 - today).Days.CompareTo((b.Item1 - today).Days));
+
+            // Tworzenie nowej tablicy z posortowanymi danymi
+            int numberOfRows = Math.Min(3, datesWithIndex.Count); // Zakładamy, że chcemy tylko 3 najbliższe daty, lub mniej jeśli mniej dat w pliku
+            string[,] sortedDataArray = new string[numberOfRows, columns];
+            for (int i = 0; i < numberOfRows; i++)
+            {
+                int originalIndex = datesWithIndex[i].Item2;
+                for (int j = 0; j < columns; j++)
+                {
+                    sortedDataArray[i, j] = dataArray[originalIndex, j];
+                }
+            }
+
+            return sortedDataArray; // Zwrócenie posortowanej tablicy
+        }
+
 
         public Boolean CheckFile(string fileName)
         {
