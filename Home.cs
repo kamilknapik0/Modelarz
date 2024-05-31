@@ -13,13 +13,20 @@ namespace Modelarz
 {
     public partial class Home : Form
     {
+
         public Home()
         {
+            string fileName = "visits.txt";
+            string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
+            string filePath = directoryPath + fileName;
+            string[,] appointments = LoadDataToArray(filePath);
+
             InitializeComponent();
             InitializeTimer();
-            FillCalendar(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month);
+            FillCalendar(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month, appointments);
             AddCallendarEvent(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month);
             UpcomingVisits(tableLayoutPanel2);
+            
         }
 
         Dictionary<DateTime, List<string>> appointments = new Dictionary<DateTime, List<string>>();
@@ -36,7 +43,7 @@ namespace Modelarz
             labelDate.Text = DateTime.Now.ToString("d MMMM yyyy HH:mm");
         }
 
-        public void FillCalendar(TableLayoutPanel tableLayoutPanel1, int year, int month)
+        public void FillCalendar(TableLayoutPanel tableLayoutPanel1, int year, int month, string[,] appointments)
         {
             DateTime firstDateOfMonth = new DateTime(year, month, 1);
             int daysInMonth = DateTime.DaysInMonth(year, month);
@@ -47,9 +54,23 @@ namespace Modelarz
 
             for (int day = 1; day <= daysInMonth; day++)
             {
+                DateTime currenDate = new DateTime(year, month, day);
+                bool hasAppointment = false;
+
+                for (int i=0; i<appointments.GetLength(0); i++)
+                {
+                    DateTime appointmentDate = DateTime.ParseExact(appointments[i, 0], "dd-MM-yyyy", null);
+                    if (currenDate == appointmentDate)
+                    {
+                        hasAppointment = true;
+                        break;
+                    }
+                }
+
+
                 Label dayLabel = new Label
                 {
-                    Text = day.ToString(),
+                    Text = hasAppointment ? day.ToString() + " (W)" : day.ToString(),
                     TextAlign = ContentAlignment.MiddleCenter,
                     Dock = DockStyle.Fill
                 };
@@ -97,6 +118,8 @@ namespace Modelarz
                 string fileName = "visits.txt";
                 string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
                 string filePath = directoryPath + fileName;
+                string[,] appointments = LoadDataToArray(filePath);
+
                 string [,] dataArray = LoadDataToArray(filePath);
                 string[,] newDataArray = SortDatesClosestToToday(dataArray);
 
