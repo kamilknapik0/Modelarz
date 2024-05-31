@@ -102,8 +102,11 @@ namespace Modelarz
                 {
                     label.Click += (sender, e) =>
                     {
+                        
                         Label clickedLabel = sender as Label;
-                        DateTime selectedDate = new DateTime(year, month, int.Parse(clickedLabel.Text));
+                        string labelText = clickedLabel.Text;
+                        string trimmedString = labelText.Substring(0, labelText.Length - 3);
+                        DateTime selectedDate = new DateTime(year, month, int.Parse(trimmedString));
                         //dodac wywolanie formularza do dodania wizyty
                         AddCallendarAppointment(selectedDate);
                     };
