@@ -104,28 +104,21 @@ namespace Modelarz
                 {
                     string[] elements = line.Split(';'); //rozdzielenie linii na elementy
 
-                    // Dodajemy etykietę z datą do pierwszego wiersza
-                    Label dateLabel = new Label
+                    if (row == 0)
                     {
-                        Text = elements[0],
-                        TextAlign = ContentAlignment.MiddleCenter,
-                        Dock = DockStyle.Fill
-                    };
-                    tableLayoutPanel2.Controls.Add(dateLabel, 0, row);
-
-                    // Dodajemy etykiety z pozostałymi elementami do drugiego wiersza
-                    for (int column = 0; column < elements.Length - 1; column++)
-                    {
-                        Label label = new Label
+                        // Dodajemy etykiety z nazwami kolumn do pierwszego wiersza
+                        for (int column = 0; column < elements.Length - 1; column++)
                         {
-                            Text = elements[column + 1], // +1, ponieważ pomijamy datę, która jest już dodana
-                            TextAlign = ContentAlignment.MiddleCenter,
-                            Dock = DockStyle.Fill
-                        };
-                        tableLayoutPanel2.Controls.Add(label, column, row + 1); // Dodajemy do następnego wiersza
+                            Label label = new Label
+                            {
+                                Text = elements[0],
+                                TextAlign = ContentAlignment.MiddleCenter,
+                                Dock = DockStyle.Fill
+                            };
+                            tableLayoutPanel2.Controls.Add(label, column, row);
+                        }
                     }
-
-                    row += 2; // Przeskakujemy o dwa wiersze, aby umożliwić oddzielenie daty od pozostałych danych
+                    
                 }
             }
         }
