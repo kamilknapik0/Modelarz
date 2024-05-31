@@ -99,26 +99,22 @@ namespace Modelarz
                 string filePath = directoryPath + fileName;
                 string[] lines = File.ReadAllLines(filePath); //wszystkie linie z pliku
                 int row = 0;
+                int column = 0;
+
+                tableLayoutPanel2.Controls.Clear();
+                tableLayoutPanel2.RowStyles.Clear();
 
                 foreach (var line in lines)
                 {
                     string[] elements = line.Split(';'); //rozdzielenie linii na elementy
-
-                    if (row == 0)
+                    Label label = new Label
                     {
-                        // Dodajemy etykiety z nazwami kolumn do pierwszego wiersza
-                        for (int column = 0; column < elements.Length - 1; column++)
-                        {
-                            Label label = new Label
-                            {
-                                Text = elements[0],
-                                TextAlign = ContentAlignment.MiddleCenter,
-                                Dock = DockStyle.Fill
-                            };
-                            tableLayoutPanel2.Controls.Add(label, column, row);
-                        }
-                    }
-                    
+                        Text = elements[0],
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Dock = DockStyle.Fill
+                    };
+                    tableLayoutPanel2.Controls.Add(label, row, column); // Dodajemy etykietę do pierwszej kolumny i odpowiedniego wiersza
+                    row++;
                 }
             }
         }
