@@ -16,6 +16,15 @@ namespace Modelarz
         public Wizyty()
         {
             InitializeComponent();
+
+            //SetData();
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "dd/MM/yyyy HH:mm";
+
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            dateTimePicker2.ShowUpDown = true;
+            dateTimePicker2.CustomFormat = "HH:mm";
+
         }
 
         public Wizyty(DateTime selectedDate)
@@ -25,21 +34,22 @@ namespace Modelarz
 
         void SaveDataToFile()
         {
+
             String imie = textBox1.Text;
             String nazwisko = textBox2.Text;
-            String data = dateTimePicker1.Value.ToString();
+            String data = dateTimePicker1.Value.ToString("dd-MM-yyyy");
+            String godzina = dateTimePicker2.Value.ToString("HH:mm");
 
-            if (imie == "" || nazwisko == "" || data == "")
+            if (imie == "" || nazwisko == "" || data == "" || godzina == "")
             {
                 MessageBox.Show("Wszystkie pola muszą być wypełnione");
                 return;
             }
 
             String path = "visits.txt";
-            String text = imie + " " + nazwisko + " " + data + Environment.NewLine;
+            String text = data + ";" + imie + ";" + nazwisko + ";" + godzina + Environment.NewLine;
 
             System.IO.File.AppendAllText(path, text);
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -59,9 +69,14 @@ namespace Modelarz
         {
             textBox1.Text = "";
             textBox2.Text = "";
-            dateTimePicker1.Value = DateTime.Now;
+            //dateTimePicker1.Value = DateTime.Now;
+            //dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 0, 0);
         }
 
-       
+        void SetData()
+        {
+            //dateTimePicker1.Value = DateTime.Now;
+            //dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 0, 0);
+        }
     }
 }

@@ -47,6 +47,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonAppointment = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -56,9 +57,10 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.buttonAppointment);
             this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(12, 102);
@@ -94,8 +96,8 @@
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Location = new System.Drawing.Point(12, 264);
@@ -261,6 +263,16 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Ekran główny";
             // 
+            // buttonAppointment
+            // 
+            this.buttonAppointment.Location = new System.Drawing.Point(566, 125);
+            this.buttonAppointment.Name = "buttonAppointment";
+            this.buttonAppointment.Size = new System.Drawing.Size(75, 23);
+            this.buttonAppointment.TabIndex = 3;
+            this.buttonAppointment.Text = "Dodaj wizytę";
+            this.buttonAppointment.UseVisualStyleBackColor = true;
+            this.buttonAppointment.Click += new System.EventHandler(this.buttonAppointment_Click);
+            // 
             // Home
             // 
             this.BackColor = System.Drawing.Color.White;
@@ -301,5 +313,6 @@
         private System.Windows.Forms.Label labelSun;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonAppointment;
     }
 }
