@@ -52,6 +52,12 @@
     <Compile Include="Edycja.Designer.cs">
       <DependentUpon>Edycja.cs</DependentUpon>
     </Compile>
+    <Compile Include="PodgladWizyt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PodgladWizyt.Designer.cs">
+      <DependentUpon>PodgladWizyt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Wizyty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PodgladWizyt.resx">
+      <DependentUpon>PodgladWizyt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
