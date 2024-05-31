@@ -45,7 +45,7 @@ namespace Modelarz
             int currentRowIndex = 1;
             int currentColumnIndex = dayOfWeek;
 
-            for(int day = 1; day <= daysInMonth; day++)
+            for (int day = 1; day <= daysInMonth; day++)
             {
                 Label dayLabel = new Label
                 {
@@ -58,13 +58,13 @@ namespace Modelarz
 
                 currentColumnIndex++;
 
-                if(currentColumnIndex > 6)
+                if (currentColumnIndex > 6)
                 {
                     currentColumnIndex = 0;
                     currentRowIndex++;
                 }
 
-                if(day == DateTime.Now.Day)
+                if (day == DateTime.Now.Day)
                 {
                     dayLabel.BackColor = Color.FromArgb(227, 227, 227);
                     dayLabel.Dock = DockStyle.Fill;
@@ -73,11 +73,11 @@ namespace Modelarz
             }
         }
 
-        public void AddCallendarEvent(TableLayoutPanel tableLayoutPanel1, int year, int month) 
-        { 
-            foreach(Control control in tableLayoutPanel1.Controls)
+        public void AddCallendarEvent(TableLayoutPanel tableLayoutPanel1, int year, int month)
+        {
+            foreach (Control control in tableLayoutPanel1.Controls)
             {
-                if(control is Label label && label.Text != "")
+                if (control is Label label && label.Text != "")
                 {
                     label.Click += (sender, e) =>
                     {
@@ -93,7 +93,7 @@ namespace Modelarz
         public void UpcomingVisits(TableLayoutPanel tableLayoutPanel2)
         {
             if (CheckFile("visits.txt"))
-            {   
+            {
                 string fileName = "visits.txt";
                 string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
                 string filePath = directoryPath + fileName;
@@ -135,7 +135,7 @@ namespace Modelarz
             using (Wizyty wizyty = new Wizyty(selectedDate))
             {
                 wizyty.ShowDialog();
-                if(wizyty.DialogResult == DialogResult.OK)
+                if (wizyty.DialogResult == DialogResult.OK)
                 {
                     //tu sie bedzie dodawalo wizyte w formularzu wizyta
                     //zapisuje z formularza do pliku/bazy i zaznacza to na kalendarzu
@@ -148,7 +148,7 @@ namespace Modelarz
             string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
             string filePath = directoryPath + fileName;
 
-            if(File.Exists(filePath))
+            if (File.Exists(filePath))
             {
                 return true;
             }
@@ -159,9 +159,9 @@ namespace Modelarz
             }
             else
             {
-               return false;
+                return false;
             }
-            
+
         }
 
 
@@ -178,12 +178,6 @@ namespace Modelarz
         private void labelThur_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void buttonAddAppointment_Click(object sender, EventArgs e)
-        {
-            Wizyty wizytyForm = new Wizyty();
-            wizytyForm.Show();
         }
     }
 }
