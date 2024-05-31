@@ -27,7 +27,7 @@ namespace Modelarz
         {
             String imie = textBox1.Text;
             String nazwisko = textBox2.Text;
-            String data = textBox3.Text;
+            String data = dateTimePicker1.Value.ToString();
 
             if (imie == "" || nazwisko == "" || data == "")
             {
@@ -59,7 +59,7 @@ namespace Modelarz
         {
             textBox1.Text = "";
             textBox2.Text = "";
-            textBox3.Text = "";
+            dateTimePicker1.Value = DateTime.Now;
         }
 
        
