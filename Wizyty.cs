@@ -37,7 +37,7 @@ namespace Modelarz
 
             String imie = textBox1.Text;
             String nazwisko = textBox2.Text;
-            String data = dateTimePicker1.Value.ToString("dd.MM.yyyy");
+            String data = dateTimePicker1.Value.ToString("dd-MM-yyyy");
             String godzina = dateTimePicker2.Value.ToString("HH:mm");
 
             if (imie == "" || nazwisko == "" || data == "" || godzina == "")
