@@ -102,7 +102,6 @@ namespace Modelarz
                 {
                     label.Click += (sender, e) =>
                     {
-                        
                         Label clickedLabel = sender as Label;
                         string labelText = clickedLabel.Text;
                         string trimmedString = labelText.Substring(0, labelText.Length - 3);
