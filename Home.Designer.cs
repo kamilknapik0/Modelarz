@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonAppointment = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -47,7 +48,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonAppointment = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -67,6 +67,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(673, 156);
             this.panel2.TabIndex = 1;
+            // 
+            // buttonAppointment
+            // 
+            this.buttonAppointment.Location = new System.Drawing.Point(566, 125);
+            this.buttonAppointment.Name = "buttonAppointment";
+            this.buttonAppointment.Size = new System.Drawing.Size(75, 23);
+            this.buttonAppointment.TabIndex = 3;
+            this.buttonAppointment.Text = "Dodaj wizytę";
+            this.buttonAppointment.UseVisualStyleBackColor = true;
+            this.buttonAppointment.Click += new System.EventHandler(this.buttonAppointment_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -124,6 +134,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelFri, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelSat, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelSun, 6, 0);
+            this.tableLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 45);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -262,16 +273,6 @@
             this.label2.Size = new System.Drawing.Size(142, 28);
             this.label2.TabIndex = 0;
             this.label2.Text = "Ekran główny";
-            // 
-            // buttonAppointment
-            // 
-            this.buttonAppointment.Location = new System.Drawing.Point(566, 125);
-            this.buttonAppointment.Name = "buttonAppointment";
-            this.buttonAppointment.Size = new System.Drawing.Size(75, 23);
-            this.buttonAppointment.TabIndex = 3;
-            this.buttonAppointment.Text = "Dodaj wizytę";
-            this.buttonAppointment.UseVisualStyleBackColor = true;
-            this.buttonAppointment.Click += new System.EventHandler(this.buttonAppointment_Click);
             // 
             // Home
             // 
