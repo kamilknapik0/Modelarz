@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
+
+
 
 namespace Modelarz
 {
@@ -26,12 +29,31 @@ namespace Modelarz
             FillCalendar(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month, appointments);
             AddCallendarEvent(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month);
             UpcomingVisits(tableLayoutPanel2);
-            
+            ConnectToOracle();
+
+
         }
 
         Dictionary<DateTime, List<string>> appointments = new Dictionary<DateTime, List<string>>();
 
-        private void InitializeTimer()
+
+        public static void ConnectToOracle()
+        {
+            string connectionString = "User Id=msbd4;Password=haslo2024;Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=155.158.112.45)(PORT=1521)))(CONNECT_DATA=(SID=oltpstud)))";
+ 
+            using (OracleConnection con = new OracleConnection(connectionString))
+            {
+                con.Open();
+                Console.WriteLine("Connected to Oracle Database");
+
+                // Wykonaj operacje na bazie danych
+
+                con.Close();
+            }
+
+        }
+
+            private void InitializeTimer()
         {
             timer1.Interval = 1000; // Ustawienie interwału na 1 sekundę
             timer1.Tick += timer1_Tick; // Podłączenie zdarzenia Tick
