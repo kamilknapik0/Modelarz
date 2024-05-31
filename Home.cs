@@ -172,5 +172,14 @@ namespace Modelarz
         {
 
         }
+
+        private void buttonAppointment_Click(object sender, EventArgs e)
+        {
+            
+             Wizyty wizytyForm = new Wizyty();
+             wizytyForm.ShowDialog();
+            
+
+        }
     }
 }
