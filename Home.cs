@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace Modelarz
             InitializeTimer();
             FillCalendar(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month);
             AddCallendarEvent(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month);
+            UpcomingVisits(tableLayoutPanel2);
         }
 
         Dictionary<DateTime, List<string>> appointments = new Dictionary<DateTime, List<string>>();
@@ -88,6 +90,46 @@ namespace Modelarz
             }
         }
 
+        public void UpcomingVisits(TableLayoutPanel tableLayoutPanel2)
+        {
+            if (CheckFile("visits.txt"))
+            {   
+                string fileName = "visits.txt";
+                string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
+                string filePath = directoryPath + fileName;
+                string[] lines = File.ReadAllLines(filePath); //wszystkie linie z pliku
+                int row = 0;
+
+                foreach (var line in lines)
+                {
+                    string[] elements = line.Split(';'); //rozdzielenie linii na elementy
+
+                    // Dodajemy etykietę z datą do pierwszego wiersza
+                    Label dateLabel = new Label
+                    {
+                        Text = elements[0],
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Dock = DockStyle.Fill
+                    };
+                    tableLayoutPanel2.Controls.Add(dateLabel, 0, row);
+
+                    // Dodajemy etykiety z pozostałymi elementami do drugiego wiersza
+                    for (int column = 0; column < elements.Length - 1; column++)
+                    {
+                        Label label = new Label
+                        {
+                            Text = elements[column + 1], // +1, ponieważ pomijamy datę, która jest już dodana
+                            TextAlign = ContentAlignment.MiddleCenter,
+                            Dock = DockStyle.Fill
+                        };
+                        tableLayoutPanel2.Controls.Add(label, column, row + 1); // Dodajemy do następnego wiersza
+                    }
+
+                    row += 2; // Przeskakujemy o dwa wiersze, aby umożliwić oddzielenie daty od pozostałych danych
+                }
+            }
+        }
+
         public void AddCallendarAppointment(DateTime selectedDate)
         {
             using (Wizyty wizyty = new Wizyty(selectedDate))
@@ -99,6 +141,27 @@ namespace Modelarz
                     //zapisuje z formularza do pliku/bazy i zaznacza to na kalendarzu
                 }
             }
+        }
+
+        public Boolean CheckFile(string fileName)
+        {
+            string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
+            string filePath = directoryPath + fileName;
+
+            if(File.Exists(filePath))
+            {
+                return true;
+            }
+            else if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Close();
+                return true;
+            }
+            else
+            {
+               return false;
+            }
+            
         }
 
 
