@@ -17,7 +17,7 @@ namespace Modelarz
         {
             InitializeComponent();
 
-            //SetData();
+            SetData();
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy HH:mm";
 
@@ -69,14 +69,14 @@ namespace Modelarz
         {
             textBox1.Text = "";
             textBox2.Text = "";
-            //dateTimePicker1.Value = DateTime.Now;
-            //dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 0, 0);
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 0, 0);
         }
 
         void SetData()
         {
-            //dateTimePicker1.Value = DateTime.Now;
-            //dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 0, 0);
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 0, 0);
         }
     }
 }
