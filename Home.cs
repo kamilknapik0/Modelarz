@@ -102,9 +102,13 @@ namespace Modelarz
                 {
                     label.Click += (sender, e) =>
                     {
+
                         Label clickedLabel = sender as Label;
+                        string labelText = clickedLabel.Text;
+                        string trimmedString = labelText.Substring(0, labelText.Length - 3);
+                        DateTime selectedDate = new DateTime(year, month, int.Parse(trimmedString));
                         //dodac wywolanie formularza do dodania wizyty
-                        AddCallendarAppointment();
+                        AddCallendarAppointment(selectedDate);
                     };
                 }
             }
@@ -153,12 +157,12 @@ namespace Modelarz
             }
         }
 
-        public void AddCallendarAppointment()
+        public void AddCallendarAppointment(DateTime selectedDate)
         {
-            using (PodgladWizyt podglad = new PodgladWizyt())
+            using (Wizyty wizyty = new Wizyty(selectedDate))
             {
-                podglad.ShowDialog();
-                if (podglad.DialogResult == DialogResult.OK)
+                wizyty.ShowDialog();
+                if (wizyty.DialogResult == DialogResult.OK)
                 {
                     //tu sie bedzie dodawalo wizyte w formularzu wizyta
                     //zapisuje z formularza do pliku/bazy i zaznacza to na kalendarzu
