@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -55,7 +56,7 @@
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(230, 204);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(167, 204);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -141,6 +142,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Wyczyść";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -151,12 +153,25 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Dodaj";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(143, 221);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(193, 31);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Dodano wizytę";
+            this.label4.Visible = false;
             // 
             // Wizyty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 261);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "Wizyty";
             this.Text = "Dodaj wizytę";
@@ -168,6 +183,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -185,5 +201,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonAddAppointment = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -47,7 +48,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonAddAppointment = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -67,6 +67,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(673, 156);
             this.panel2.TabIndex = 1;
+            // 
+            // buttonAddAppointment
+            // 
+            this.buttonAddAppointment.Location = new System.Drawing.Point(489, 123);
+            this.buttonAddAppointment.Name = "buttonAddAppointment";
+            this.buttonAddAppointment.Size = new System.Drawing.Size(176, 30);
+            this.buttonAddAppointment.TabIndex = 3;
+            this.buttonAddAppointment.Text = "Dodaj wizytę";
+            this.buttonAddAppointment.UseVisualStyleBackColor = true;
+            this.buttonAddAppointment.Click += new System.EventHandler(this.buttonAddAppointment_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -262,16 +272,6 @@
             this.label2.Size = new System.Drawing.Size(142, 28);
             this.label2.TabIndex = 0;
             this.label2.Text = "Ekran główny";
-            // 
-            // buttonAddAppointment
-            // 
-            this.buttonAddAppointment.Location = new System.Drawing.Point(489, 123);
-            this.buttonAddAppointment.Name = "buttonAddAppointment";
-            this.buttonAddAppointment.Size = new System.Drawing.Size(176, 30);
-            this.buttonAddAppointment.TabIndex = 3;
-            this.buttonAddAppointment.Text = "Dodaj wizytę";
-            this.buttonAddAppointment.UseVisualStyleBackColor = true;
-            this.buttonAddAppointment.Click += new System.EventHandler(this.buttonAddAppointment_Click);
             // 
             // Home
             // 
