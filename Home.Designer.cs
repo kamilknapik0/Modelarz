@@ -70,12 +70,18 @@
             // 
             // buttonAppointment
             // 
-            this.buttonAppointment.Location = new System.Drawing.Point(566, 125);
+            this.buttonAppointment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.buttonAppointment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAppointment.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.buttonAppointment.FlatAppearance.BorderSize = 0;
+            this.buttonAppointment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.buttonAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAppointment.Location = new System.Drawing.Point(524, 109);
             this.buttonAppointment.Name = "buttonAppointment";
-            this.buttonAppointment.Size = new System.Drawing.Size(75, 23);
+            this.buttonAppointment.Size = new System.Drawing.Size(117, 39);
             this.buttonAppointment.TabIndex = 3;
             this.buttonAppointment.Text = "Dodaj wizytę";
-            this.buttonAppointment.UseVisualStyleBackColor = true;
+            this.buttonAppointment.UseVisualStyleBackColor = false;
             this.buttonAppointment.Click += new System.EventHandler(this.buttonAppointment_Click);
             // 
             // tableLayoutPanel2

@@ -45,10 +45,10 @@ namespace Modelarz
             // 
             // panelMenu
             // 
-            this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelMenu.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panelMenu.BackColor = System.Drawing.Color.LightGray;
             this.panelMenu.Controls.Add(this.buttonExport);
             this.panelMenu.Controls.Add(this.buttonImport);
             this.panelMenu.Controls.Add(this.buttonEdycja);
@@ -63,21 +63,33 @@ namespace Modelarz
             // 
             // buttonExport
             // 
+            this.buttonExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.buttonExport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonExport.FlatAppearance.BorderSize = 0;
+            this.buttonExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonExport.Location = new System.Drawing.Point(13, 232);
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(153, 44);
             this.buttonExport.TabIndex = 6;
             this.buttonExport.Text = "Eksportuj dane";
-            this.buttonExport.UseVisualStyleBackColor = true;
+            this.buttonExport.UseVisualStyleBackColor = false;
             // 
             // buttonImport
             // 
+            this.buttonImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.buttonImport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonImport.FlatAppearance.BorderSize = 0;
+            this.buttonImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonImport.Location = new System.Drawing.Point(13, 182);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(153, 44);
             this.buttonImport.TabIndex = 5;
             this.buttonImport.Text = "Importuj dane";
-            this.buttonImport.UseVisualStyleBackColor = true;
+            this.buttonImport.UseVisualStyleBackColor = false;
             // 
             // buttonEdycja
             // 
@@ -91,51 +103,69 @@ namespace Modelarz
             // 
             // buttonKatalog
             // 
+            this.buttonKatalog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.buttonKatalog.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonKatalog.FlatAppearance.BorderSize = 0;
+            this.buttonKatalog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonKatalog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonKatalog.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonKatalog.Location = new System.Drawing.Point(13, 82);
             this.buttonKatalog.Name = "buttonKatalog";
             this.buttonKatalog.Size = new System.Drawing.Size(153, 44);
             this.buttonKatalog.TabIndex = 3;
             this.buttonKatalog.Text = "Katalog pacjentów";
-            this.buttonKatalog.UseVisualStyleBackColor = true;
+            this.buttonKatalog.UseVisualStyleBackColor = false;
             this.buttonKatalog.Click += new System.EventHandler(this.buttonKatalog_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(63, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(53, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 20);
+            this.label1.Size = new System.Drawing.Size(59, 24);
             this.label1.TabIndex = 2;
-            this.label1.Text = "MENU";
+            this.label1.Text = "Menu";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonHome
             // 
+            this.buttonHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.buttonHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonHome.FlatAppearance.BorderSize = 0;
+            this.buttonHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonHome.Location = new System.Drawing.Point(13, 32);
             this.buttonHome.Name = "buttonHome";
             this.buttonHome.Size = new System.Drawing.Size(153, 44);
             this.buttonHome.TabIndex = 1;
             this.buttonHome.Text = "Ekran główny";
-            this.buttonHome.UseVisualStyleBackColor = true;
+            this.buttonHome.UseVisualStyleBackColor = false;
             this.buttonHome.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.Location = new System.Drawing.Point(13, 555);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(153, 44);
             this.btnExit.TabIndex = 0;
             this.btnExit.Text = "Zakończ";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // panelMain
             // 
-            this.panelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMain.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panelMain.Location = new System.Drawing.Point(171, 0);

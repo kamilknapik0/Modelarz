@@ -29,29 +29,10 @@ namespace Modelarz
             FillCalendar(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month, appointments);
             AddCallendarEvent(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month);
             UpcomingVisits(tableLayoutPanel2);
-            ConnectToOracle();
-
-
+  
         }
 
         Dictionary<DateTime, List<string>> appointments = new Dictionary<DateTime, List<string>>();
-
-
-        public static void ConnectToOracle()
-        {
-            string connectionString = "User Id=msbd4;Password=haslo2024;Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=155.158.112.45)(PORT=1521)))(CONNECT_DATA=(SID=oltpstud)))";
- 
-            using (OracleConnection con = new OracleConnection(connectionString))
-            {
-                con.Open();
-                Console.WriteLine("Connected to Oracle Database");
-
-                // Wykonaj operacje na bazie danych
-
-                con.Close();
-            }
-
-        }
 
             private void InitializeTimer()
         {
@@ -266,7 +247,6 @@ namespace Modelarz
             }
 
         }
-
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
