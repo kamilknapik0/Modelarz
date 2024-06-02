@@ -34,7 +34,6 @@ namespace Modelarz
             this.panelMenu = new System.Windows.Forms.Panel();
             this.buttonExport = new System.Windows.Forms.Button();
             this.buttonImport = new System.Windows.Forms.Button();
-            this.buttonEdycja = new System.Windows.Forms.Button();
             this.buttonKatalog = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonHome = new System.Windows.Forms.Button();
@@ -51,7 +50,6 @@ namespace Modelarz
             this.panelMenu.BackColor = System.Drawing.Color.LightGray;
             this.panelMenu.Controls.Add(this.buttonExport);
             this.panelMenu.Controls.Add(this.buttonImport);
-            this.panelMenu.Controls.Add(this.buttonEdycja);
             this.panelMenu.Controls.Add(this.buttonKatalog);
             this.panelMenu.Controls.Add(this.label1);
             this.panelMenu.Controls.Add(this.buttonHome);
@@ -69,7 +67,7 @@ namespace Modelarz
             this.buttonExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.buttonExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonExport.Location = new System.Drawing.Point(13, 232);
+            this.buttonExport.Location = new System.Drawing.Point(13, 182);
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(153, 44);
             this.buttonExport.TabIndex = 6;
@@ -84,22 +82,12 @@ namespace Modelarz
             this.buttonImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.buttonImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonImport.Location = new System.Drawing.Point(13, 182);
+            this.buttonImport.Location = new System.Drawing.Point(13, 132);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(153, 44);
             this.buttonImport.TabIndex = 5;
             this.buttonImport.Text = "Importuj dane";
             this.buttonImport.UseVisualStyleBackColor = false;
-            // 
-            // buttonEdycja
-            // 
-            this.buttonEdycja.Location = new System.Drawing.Point(13, 132);
-            this.buttonEdycja.Name = "buttonEdycja";
-            this.buttonEdycja.Size = new System.Drawing.Size(153, 44);
-            this.buttonEdycja.TabIndex = 4;
-            this.buttonEdycja.Text = "Edycja pacjentów";
-            this.buttonEdycja.UseVisualStyleBackColor = true;
-            this.buttonEdycja.Click += new System.EventHandler(this.buttonEdycja_Click);
             // 
             // buttonKatalog
             // 
@@ -195,7 +183,6 @@ namespace Modelarz
         private System.Windows.Forms.Button buttonHome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonKatalog;
-        private System.Windows.Forms.Button buttonEdycja;
         private System.Windows.Forms.Button buttonExport;
         private System.Windows.Forms.Button buttonImport;
 

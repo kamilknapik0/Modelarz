@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,11 +14,13 @@ namespace Modelarz
 {
     public partial class Katalog : Form
     {
+        public int rowCountBefore;
         public Katalog()
         {
             InitializeComponent();
             Katalog_Load();
             CustomDataGrid();
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -109,6 +112,7 @@ namespace Modelarz
                 button1.BackColor = Color.LightGray;
                 changeBtn = true;
                 dataGridView1.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+                rowCountBefore = dataGridView1.Rows.Count - 2;
             }
         }
 
@@ -117,23 +121,30 @@ namespace Modelarz
         private void button2_Click(object sender, EventArgs e)
         {
 
+            int rowCountAfter = dataGridView1.Rows.Count - 2;
+            int diffrence = rowCountAfter - rowCountBefore;
+
             string connectionString = "User Id=msbd4;Password=haslo2024;Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=155.158.112.45)(PORT=1521)))(CONNECT_DATA=(SID=oltpstud)))";
 
-
-            using (OracleConnection con = new OracleConnection(connectionString))
-            {
-                con.Open();
+           
+                using (OracleConnection con = new OracleConnection(connectionString))
+                {
+                int j = 2;
                 Console.WriteLine("Połączenie otwarte.");
+                for (int i = 0; i < diffrence; i++)
+                {
+                    con.Open();
+                    
+                    Console.WriteLine($"j: {j}");
+                    string imie = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["Imie"].Value.ToString();
+                    string nazwisko = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["Nazwisko"].Value.ToString();
+                    string pesel = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["pesel"].Value.ToString();
+                    string nrModelu = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["NrModelu"].Value.ToString();
+                    string dataWykonania = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["DataWykonania"].Value.ToString();
+                    j++;
+                    Console.WriteLine($"Imię: {imie}, Nazwisko: {nazwisko}, PESEL: {pesel}, Nr Modelu: {nrModelu}, Data Wykonania: {dataWykonania}, j: {j}");
 
-                    string imie = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["Imie"].Value.ToString();
-                    string nazwisko = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["Nazwisko"].Value.ToString();
-                    string pesel = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["pesel"].Value.ToString();
-                    string nrModelu = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["NrModelu"].Value.ToString();
-                    string dataWykonania = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["DataWykonania"].Value.ToString();
-
-                Console.WriteLine($"Imię: {imie}, Nazwisko: {nazwisko}, PESEL: {pesel}, Nr Modelu: {nrModelu}, Data Wykonania: {dataWykonania}");
-
-                    if (string.IsNullOrEmpty(imie) || string.IsNullOrEmpty(nazwisko) || string.IsNullOrEmpty(pesel))
+                    if (string.IsNullOrEmpty(imie) || string.IsNullOrEmpty(nazwisko) || string.IsNullOrEmpty(pesel) || string.IsNullOrEmpty(nrModelu) || string.IsNullOrEmpty(dataWykonania))
                     {
                         MessageBox.Show("Wszystkie pola muszą być wypełnione.");
                         return;
@@ -177,22 +188,30 @@ namespace Modelarz
                         transaction.Commit();
                         Console.WriteLine("Transakcja zatwierdzona.");
                     }
+                    catch (OracleException ex) when (ex.Number == 1)
+                    {
+
+                    }
                     catch (Exception ex)
                     {
                         transaction.Rollback();
                         Console.WriteLine("Transakcja wycofana.");
                         MessageBox.Show("Upewnij się, czy dane są poprawnie wpisane" + ex.Message);
                     }
-
                     finally
                     {
                         con.Close();
                         Console.WriteLine("Połączenie zamknięte.");
                     }
+
+                }
                 
-
-
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Katalog_Load();
         }
     }
 }

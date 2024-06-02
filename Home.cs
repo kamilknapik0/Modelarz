@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,7 +20,9 @@ namespace Modelarz
 
         public Home()
         {
+            
             string fileName = "visits.txt";
+            CheckFile(fileName);
             string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
             string filePath = directoryPath + fileName;
             string[,] appointments = LoadDataToArray(filePath);
@@ -29,6 +32,7 @@ namespace Modelarz
             FillCalendar(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month, appointments);
             AddCallendarEvent(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month);
             UpcomingVisits(tableLayoutPanel2);
+            
   
         }
 
@@ -180,6 +184,9 @@ namespace Modelarz
 
         public string[,] LoadDataToArray(string filePath)
         {
+            if (File.Exists(filePath) && new FileInfo(filePath).Length > 0)
+            { 
+
             string[] lines = File.ReadAllLines(filePath);
             int rows = lines.Length;
             int columns = lines[0].Split(';').Length;
@@ -195,6 +202,11 @@ namespace Modelarz
                 }
             }
             return dataArray;
+        }
+        else
+            {
+                return new string[0, 0];
+            }
         }
 
         public string[,] SortDatesClosestToToday(string[,] dataArray)
