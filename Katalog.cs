@@ -48,7 +48,7 @@ namespace Modelarz
                 con.Open();
                 Console.WriteLine("Connected to Oracle Database");
 
-                string sqlQuery = "select p.imie, p.nazwisko, p.pesel, m.nr_modelu, m.data_wykonania from pacjenci p join modeleortodontyczne m on p.pacjent_id = m.pacjent_id";
+                string sqlQuery = "select p.imie, p.nazwisko, p.pesel, p.data_urodzenia, m.nr_modelu, m.data_wykonania from pacjenci p join modeleortodontyczne m on p.pacjent_id = m.pacjent_id";
 
                 using (OracleCommand command = new OracleCommand(sqlQuery, con))
                 {
@@ -72,14 +72,16 @@ namespace Modelarz
             dataGridView1.Columns[0].HeaderText = "Imię";
             dataGridView1.Columns[1].HeaderText = "Nazwisko";
             dataGridView1.Columns[2].HeaderText = "PESEL";
-            dataGridView1.Columns[3].HeaderText = "Nr modelu";
-            dataGridView1.Columns[4].HeaderText = "Data wykonania";
+            dataGridView1.Columns[3].HeaderText = "Data urodzenia";
+            dataGridView1.Columns[4].HeaderText = "Nr modelu";
+            dataGridView1.Columns[5].HeaderText = "Data wykonania";
 
             dataGridView1.Columns[0].Name = "Imie";
             dataGridView1.Columns[1].Name = "Nazwisko";
             dataGridView1.Columns[2].Name = "PESEL";
-            dataGridView1.Columns[3].Name = "NrModelu";
-            dataGridView1.Columns[4].Name = "DataWykonania";
+            dataGridView1.Columns[3].Name = "DataUrodzenia";
+            dataGridView1.Columns[4].Name = "NrModelu";
+            dataGridView1.Columns[5].Name = "DataWykonania";
 
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
@@ -135,10 +137,11 @@ namespace Modelarz
                 {
                     con.Open();
                     
-                    Console.WriteLine($"j: {j}");
+                   
                     string imie = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["Imie"].Value.ToString();
                     string nazwisko = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["Nazwisko"].Value.ToString();
                     string pesel = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["pesel"].Value.ToString();
+                    string dataUrodzenia = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["DataUrodzenia"].Value.ToString();
                     string nrModelu = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["NrModelu"].Value.ToString();
                     string dataWykonania = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["DataWykonania"].Value.ToString();
                     j++;
@@ -152,7 +155,7 @@ namespace Modelarz
 
 
 
-                    string insertPacjenciQuery = "insert into pacjenci (imie, nazwisko, pesel) values (:imie, :nazwisko, :pesel) returning pacjent_id into :pacjent_id";
+                    string insertPacjenciQuery = "insert into pacjenci (imie, nazwisko, pesel, data_urodzenia) values (:imie, :nazwisko, :pesel, :data_urodzenia) returning pacjent_id into :pacjent_id";
                     string insertModeleQuery = "insert into modeleortodontyczne (pacjent_id, nr_modelu, data_wykonania) values (:pacjent_id, :nr_modelu, :data_wykonania)";
 
                     OracleTransaction transaction = con.BeginTransaction();
@@ -166,6 +169,7 @@ namespace Modelarz
                             cmdPacjenci.Parameters.Add("imie", OracleDbType.Varchar2).Value = imie;
                             cmdPacjenci.Parameters.Add("nazwisko", OracleDbType.Varchar2).Value = nazwisko;
                             cmdPacjenci.Parameters.Add("pesel", OracleDbType.Varchar2).Value = pesel;
+                            cmdPacjenci.Parameters.Add("data_urodzenia", OracleDbType.Date).Value = Convert.ToDateTime(dataUrodzenia);
 
                             OracleParameter outParameter = new OracleParameter("pacjent_id", OracleDbType.Int32, ParameterDirection.Output);
                             cmdPacjenci.Parameters.Add(outParameter);
