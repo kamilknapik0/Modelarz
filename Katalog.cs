@@ -123,16 +123,15 @@ namespace Modelarz
             using (OracleConnection con = new OracleConnection(connectionString))
             {
                 con.Open();
+                Console.WriteLine("Połączenie otwarte.");
 
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.IsNewRow) continue;
+                    string imie = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["Imie"].Value.ToString();
+                    string nazwisko = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["Nazwisko"].Value.ToString();
+                    string pesel = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["pesel"].Value.ToString();
+                    string nrModelu = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["NrModelu"].Value.ToString();
+                    string dataWykonania = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["DataWykonania"].Value.ToString();
 
-                    string imie = row.Cells["Imie"].Value?.ToString();
-                    string nazwisko = row.Cells["Nazwisko"].Value?.ToString();
-                    string pesel = row.Cells["PESEL"].Value?.ToString();
-                    string nrModelu = row.Cells["NrModelu"].Value?.ToString();
-                    string dataWykonania = row.Cells["DataWykonania"].Value?.ToString();
+                Console.WriteLine($"Imię: {imie}, Nazwisko: {nazwisko}, PESEL: {pesel}, Nr Modelu: {nrModelu}, Data Wykonania: {dataWykonania}");
 
                     if (string.IsNullOrEmpty(imie) || string.IsNullOrEmpty(nazwisko) || string.IsNullOrEmpty(pesel))
                     {
@@ -140,10 +139,13 @@ namespace Modelarz
                         return;
                     }
 
+
+
                     string insertPacjenciQuery = "insert into pacjenci (imie, nazwisko, pesel) values (:imie, :nazwisko, :pesel) returning pacjent_id into :pacjent_id";
                     string insertModeleQuery = "insert into modeleortodontyczne (pacjent_id, nr_modelu, data_wykonania) values (:pacjent_id, :nr_modelu, :data_wykonania)";
 
                     OracleTransaction transaction = con.BeginTransaction();
+                    Console.WriteLine("Transakcja rozpoczęta.");
 
                     try
                     {
@@ -159,30 +161,35 @@ namespace Modelarz
                             cmdPacjenci.ExecuteNonQuery();
 
                             pacjentId = Convert.ToInt32(outParameter.Value.ToString());
+                            Console.WriteLine($"Dodano pacjenta o ID: {pacjentId}");
                         }
 
                         using (OracleCommand cmdModele = new OracleCommand(insertModeleQuery, con))
                         {
                             cmdModele.Parameters.Add("pacjent_id", OracleDbType.Int32).Value = pacjentId;
                             cmdModele.Parameters.Add("nr_modelu", OracleDbType.Varchar2).Value = nrModelu;
-                            cmdModele.Parameters.Add("data_wykonania", OracleDbType.Date).Value = dataWykonania;
+                            cmdModele.Parameters.Add("data_wykonania", OracleDbType.Date).Value = Convert.ToDateTime(dataWykonania);
 
                             cmdModele.ExecuteNonQuery();
+                            Console.WriteLine("Dodano model.");
                         }
 
                         transaction.Commit();
+                        Console.WriteLine("Transakcja zatwierdzona.");
                     }
                     catch (Exception ex)
                     {
                         transaction.Rollback();
+                        Console.WriteLine("Transakcja wycofana.");
                         MessageBox.Show("Upewnij się, czy dane są poprawnie wpisane" + ex.Message);
                     }
+
                     finally
                     {
                         con.Close();
+                        Console.WriteLine("Połączenie zamknięte.");
                     }
-
-                }
+                
 
 
             }
