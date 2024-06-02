@@ -22,7 +22,7 @@ namespace Modelarz
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("imie LIKE '%{0}%' OR nazwisko LIKE '%{0}%' OR pesel LIKE '%{0}%' OR nr_modelu LIKE '%{0}%'", textBox1.Text);
         }
 
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
@@ -58,6 +58,7 @@ namespace Modelarz
                     }
 
                 }
+
                 con.Close();
             }
 
@@ -71,12 +72,18 @@ namespace Modelarz
             dataGridView1.Columns[3].HeaderText = "Nr modelu";
             dataGridView1.Columns[4].HeaderText = "Data wykonania";
 
+            dataGridView1.Columns[0].Name = "Imie";
+            dataGridView1.Columns[1].Name = "Nazwisko";
+            dataGridView1.Columns[2].Name = "PESEL";
+            dataGridView1.Columns[3].Name = "NrModelu";
+            dataGridView1.Columns[4].Name = "DataWykonania";
+
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
                 col.HeaderCell.Style.Font = new Font("Microsoft Sans Serif", 9F);
             }
 
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightGray;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(227, 227, 227);
 
         }
 
@@ -89,7 +96,7 @@ namespace Modelarz
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(changeBtn)
+            if (changeBtn)
             {
                 button1.FlatAppearance.MouseOverBackColor = Color.LightGray;
                 button1.BackColor = Color.FromArgb(247, 247, 247);
@@ -102,6 +109,82 @@ namespace Modelarz
                 button1.BackColor = Color.LightGray;
                 changeBtn = true;
                 dataGridView1.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+            }
+        }
+
+
+        //zapisanie danych do bazy danych
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            string connectionString = "User Id=msbd4;Password=haslo2024;Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=155.158.112.45)(PORT=1521)))(CONNECT_DATA=(SID=oltpstud)))";
+
+
+            using (OracleConnection con = new OracleConnection(connectionString))
+            {
+                con.Open();
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    string imie = row.Cells["Imie"].Value?.ToString();
+                    string nazwisko = row.Cells["Nazwisko"].Value?.ToString();
+                    string pesel = row.Cells["PESEL"].Value?.ToString();
+                    string nrModelu = row.Cells["NrModelu"].Value?.ToString();
+                    string dataWykonania = row.Cells["DataWykonania"].Value?.ToString();
+
+                    if (string.IsNullOrEmpty(imie) || string.IsNullOrEmpty(nazwisko) || string.IsNullOrEmpty(pesel))
+                    {
+                        MessageBox.Show("Wszystkie pola muszą być wypełnione.");
+                        return;
+                    }
+
+                    string insertPacjenciQuery = "insert into pacjenci (imie, nazwisko, pesel) values (:imie, :nazwisko, :pesel) returning pacjent_id into :pacjent_id";
+                    string insertModeleQuery = "insert into modeleortodontyczne (pacjent_id, nr_modelu, data_wykonania) values (:pacjent_id, :nr_modelu, :data_wykonania)";
+
+                    OracleTransaction transaction = con.BeginTransaction();
+
+                    try
+                    {
+                        int pacjentId;
+                        using (OracleCommand cmdPacjenci = new OracleCommand(insertPacjenciQuery, con))
+                        {
+                            cmdPacjenci.Parameters.Add("imie", OracleDbType.Varchar2).Value = imie;
+                            cmdPacjenci.Parameters.Add("nazwisko", OracleDbType.Varchar2).Value = nazwisko;
+                            cmdPacjenci.Parameters.Add("pesel", OracleDbType.Varchar2).Value = pesel;
+
+                            OracleParameter outParameter = new OracleParameter("pacjent_id", OracleDbType.Int32, ParameterDirection.Output);
+                            cmdPacjenci.Parameters.Add(outParameter);
+                            cmdPacjenci.ExecuteNonQuery();
+
+                            pacjentId = Convert.ToInt32(outParameter.Value.ToString());
+                        }
+
+                        using (OracleCommand cmdModele = new OracleCommand(insertModeleQuery, con))
+                        {
+                            cmdModele.Parameters.Add("pacjent_id", OracleDbType.Int32).Value = pacjentId;
+                            cmdModele.Parameters.Add("nr_modelu", OracleDbType.Varchar2).Value = nrModelu;
+                            cmdModele.Parameters.Add("data_wykonania", OracleDbType.Date).Value = dataWykonania;
+
+                            cmdModele.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Upewnij się, czy dane są poprawnie wpisane" + ex.Message);
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
+
+                }
+
+
             }
         }
     }

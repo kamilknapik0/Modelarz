@@ -44,6 +44,7 @@ namespace Modelarz
         private void timer1_Tick(object sender, EventArgs e)
         {
             labelDate.Text = DateTime.Now.ToString("d MMMM yyyy HH:mm");
+            labelDate.Font = new Font("Microsoft Sans Serif", 11);
         }
 
         public void FillCalendar(TableLayoutPanel tableLayoutPanel1, int year, int month, string[,] appointments)
@@ -75,7 +76,8 @@ namespace Modelarz
                 {
                     Text = hasAppointment ? day.ToString() + " (W)" : day.ToString(),
                     TextAlign = ContentAlignment.MiddleCenter,
-                    Dock = DockStyle.Fill
+                    Dock = DockStyle.Fill,
+                    Font = new Font("Microsoft Sans Serif", 11)
                 };
 
                 tableLayoutPanel1.Controls.Add(dayLabel, currentColumnIndex, currentRowIndex);
@@ -136,12 +138,15 @@ namespace Modelarz
 
                 for (int i = 0; i < newDataArray.GetLength(0); i++)
                 {
-                        Label label = new Label
-                        {
-                            Text = newDataArray[i, 0],
-                            TextAlign = ContentAlignment.MiddleCenter,
-                            Dock = DockStyle.Fill
-                        };
+                    Label label = new Label
+                    {
+                        Text = newDataArray[i, 0],
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Dock = DockStyle.Fill,
+                        BackColor = Color.FromArgb(217,217,217),
+                        Margin = new Padding(0),
+                        Font = new Font("Microsoft Sans Serif", 10)
+                    };
                         tableLayoutPanel2.Controls.Add(label, i, 0); // Dodajemy etykietę do odpowiedniej kolumny i wiersza
                 }
 
@@ -151,7 +156,8 @@ namespace Modelarz
                     {
                         Text = newDataArray[i, 1] + " " + newDataArray[i, 2] + "\n Godzina: " + newDataArray[i, 3],
                         TextAlign = ContentAlignment.MiddleCenter,
-                        Dock = DockStyle.Fill
+                        Dock = DockStyle.Fill,
+                        Font = new Font("Microsoft Sans Serif", 11)
                     };
                     tableLayoutPanel2.Controls.Add(label, i, 1); // Dodajemy etykietę do odpowiedniej kolumny i wiersza
                 }
@@ -271,5 +277,6 @@ namespace Modelarz
             
 
         }
+
     }
 }

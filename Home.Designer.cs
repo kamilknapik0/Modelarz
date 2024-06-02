@@ -70,12 +70,13 @@
             // 
             // buttonAppointment
             // 
-            this.buttonAppointment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.buttonAppointment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.buttonAppointment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAppointment.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.buttonAppointment.FlatAppearance.BorderSize = 0;
             this.buttonAppointment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.buttonAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonAppointment.Location = new System.Drawing.Point(524, 109);
             this.buttonAppointment.Name = "buttonAppointment";
             this.buttonAppointment.Size = new System.Drawing.Size(117, 39);
@@ -87,7 +88,6 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
@@ -124,7 +124,6 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 7;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
@@ -156,10 +155,13 @@
             // labelMon
             // 
             this.labelMon.AutoSize = true;
+            this.labelMon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.labelMon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelMon.Location = new System.Drawing.Point(4, 1);
+            this.labelMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelMon.Location = new System.Drawing.Point(0, 0);
+            this.labelMon.Margin = new System.Windows.Forms.Padding(0);
             this.labelMon.Name = "labelMon";
-            this.labelMon.Size = new System.Drawing.Size(87, 20);
+            this.labelMon.Size = new System.Drawing.Size(95, 20);
             this.labelMon.TabIndex = 0;
             this.labelMon.Text = "Poniedziałek";
             this.labelMon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -167,10 +169,13 @@
             // labelTue
             // 
             this.labelTue.AutoSize = true;
+            this.labelTue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.labelTue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelTue.Location = new System.Drawing.Point(98, 1);
+            this.labelTue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelTue.Location = new System.Drawing.Point(95, 0);
+            this.labelTue.Margin = new System.Windows.Forms.Padding(0);
             this.labelTue.Name = "labelTue";
-            this.labelTue.Size = new System.Drawing.Size(88, 20);
+            this.labelTue.Size = new System.Drawing.Size(95, 20);
             this.labelTue.TabIndex = 1;
             this.labelTue.Text = "Wtorek";
             this.labelTue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -178,10 +183,13 @@
             // labelWed
             // 
             this.labelWed.AutoSize = true;
+            this.labelWed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.labelWed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelWed.Location = new System.Drawing.Point(193, 1);
+            this.labelWed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelWed.Location = new System.Drawing.Point(190, 0);
+            this.labelWed.Margin = new System.Windows.Forms.Padding(0);
             this.labelWed.Name = "labelWed";
-            this.labelWed.Size = new System.Drawing.Size(88, 20);
+            this.labelWed.Size = new System.Drawing.Size(95, 20);
             this.labelWed.TabIndex = 2;
             this.labelWed.Text = "Środa";
             this.labelWed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -189,10 +197,13 @@
             // labelThur
             // 
             this.labelThur.AutoSize = true;
+            this.labelThur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.labelThur.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelThur.Location = new System.Drawing.Point(288, 1);
+            this.labelThur.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelThur.Location = new System.Drawing.Point(285, 0);
+            this.labelThur.Margin = new System.Windows.Forms.Padding(0);
             this.labelThur.Name = "labelThur";
-            this.labelThur.Size = new System.Drawing.Size(88, 20);
+            this.labelThur.Size = new System.Drawing.Size(95, 20);
             this.labelThur.TabIndex = 3;
             this.labelThur.Text = "Czwartek";
             this.labelThur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -201,10 +212,13 @@
             // labelFri
             // 
             this.labelFri.AutoSize = true;
+            this.labelFri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.labelFri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelFri.Location = new System.Drawing.Point(383, 1);
+            this.labelFri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelFri.Location = new System.Drawing.Point(380, 0);
+            this.labelFri.Margin = new System.Windows.Forms.Padding(0);
             this.labelFri.Name = "labelFri";
-            this.labelFri.Size = new System.Drawing.Size(88, 20);
+            this.labelFri.Size = new System.Drawing.Size(95, 20);
             this.labelFri.TabIndex = 4;
             this.labelFri.Text = "Piątek";
             this.labelFri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -212,10 +226,13 @@
             // labelSat
             // 
             this.labelSat.AutoSize = true;
+            this.labelSat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.labelSat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelSat.Location = new System.Drawing.Point(478, 1);
+            this.labelSat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelSat.Location = new System.Drawing.Point(475, 0);
+            this.labelSat.Margin = new System.Windows.Forms.Padding(0);
             this.labelSat.Name = "labelSat";
-            this.labelSat.Size = new System.Drawing.Size(88, 20);
+            this.labelSat.Size = new System.Drawing.Size(95, 20);
             this.labelSat.TabIndex = 5;
             this.labelSat.Text = "Sobota";
             this.labelSat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -223,11 +240,14 @@
             // labelSun
             // 
             this.labelSun.AutoSize = true;
+            this.labelSun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.labelSun.Cursor = System.Windows.Forms.Cursors.Default;
             this.labelSun.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelSun.Location = new System.Drawing.Point(573, 1);
+            this.labelSun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelSun.Location = new System.Drawing.Point(570, 0);
+            this.labelSun.Margin = new System.Windows.Forms.Padding(0);
             this.labelSun.Name = "labelSun";
-            this.labelSun.Size = new System.Drawing.Size(89, 20);
+            this.labelSun.Size = new System.Drawing.Size(96, 20);
             this.labelSun.TabIndex = 6;
             this.labelSun.Text = "Niedziela";
             this.labelSun.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -257,6 +277,7 @@
             // 
             // panel6
             // 
+            this.panel6.ForeColor = System.Drawing.SystemColors.MenuText;
             this.panel6.Location = new System.Drawing.Point(489, 3);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(180, 78);
