@@ -42,23 +42,24 @@ namespace Modelarz
 
             for (int i = 0; i < Home.dataArray.GetLength(0); i++)
             {
-                TimeSpan time1 = TimeSpan.Parse(Home.dataArray[i, 3]);
-                TimeSpan time2 = TimeSpan.Parse(godzina);
-                TimeSpan diff = time2 - time1;
-                if (Math.Abs(diff.TotalHours) < 2)
+                if (Home.dataArray[i, 0].Equals(data))
                 {
-                    MessageBox.Show("Zachowaj odstęp 2 godzin między wizytami");
-                    return;
+                    TimeSpan time1 = TimeSpan.Parse(Home.dataArray[i, 3]);
+                    TimeSpan time2 = TimeSpan.Parse(godzina);
+                    TimeSpan diff = time2 - time1;
+                    if (Math.Abs(diff.TotalHours) < 2)
+                    {
+                        MessageBox.Show("Zachowaj odstęp 2 godzin między wizytami");
+                        return;
+                    }
+                    if (imie == "" || nazwisko == "" || data == "" || godzina == "")
+                    {
+                        MessageBox.Show("Wszystkie pola muszą być wypełnione");
+                        return;
+                    }
                 }
-
             }
 
-            if (imie == "" || nazwisko == "" || data == "" || godzina == "")
-            {
-                MessageBox.Show("Wszystkie pola muszą być wypełnione");
-                return;
-            }
-           
             String path = "visits.txt";
             String text = data + ";" + imie + ";" + nazwisko + ";" + godzina + Environment.NewLine;
 

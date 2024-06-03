@@ -18,26 +18,23 @@ namespace Modelarz
     public partial class Home : Form
     {
         public static string[,] dataArray;
+        Dictionary<DateTime, List<string>> appointments = new Dictionary<DateTime, List<string>>();
 
         public Home()
         {
-            
-            string fileName = "visits.txt";
-            CheckFile(fileName);
-            string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
-            string filePath = directoryPath + fileName;
-            string[,] appointments = LoadDataToArray(filePath);
-
             InitializeComponent();
             InitializeTimer();
-            FillCalendar(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month, appointments);
-            AddCallendarEvent(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month);
-            UpcomingVisits(tableLayoutPanel2);
-            
-  
-        }
 
-        Dictionary<DateTime, List<string>> appointments = new Dictionary<DateTime, List<string>>();
+            string fileName = "visits.txt";
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+            if (CheckFile(fileName))
+            {
+                string[,] appointments = LoadDataToArray(filePath);
+                FillCalendar(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month, appointments);
+                AddCallendarEvent(tableLayoutPanel1, DateTime.Now.Year, DateTime.Now.Month);
+                UpcomingVisits(tableLayoutPanel2);
+            }
+        }
 
             private void InitializeTimer()
         {
@@ -174,16 +171,9 @@ namespace Modelarz
 
         public void AddCallendarAppointment(DateTime selectedDate)
         {
-            using (PodgladWizyt podgladWizyt = new PodgladWizyt(selectedDate))
-            {
-                podgladWizyt.ShowDialog();
-                if (podgladWizyt.DialogResult == DialogResult.OK)
-                {
-                    //tu sie bedzie dodawalo wizyte w formularzu wizyta
-                    //zapisuje z formularza do pliku/bazy i zaznacza to na kalendarzu
-                }
-            }
-        }
+            PodgladWizyt podgladWizyt = new PodgladWizyt(selectedDate);
+                podgladWizyt.Show();
+           }
 
         public string[,] LoadDataToArray(string filePath)
         {
@@ -288,7 +278,7 @@ namespace Modelarz
         {
             
              Wizyty wizytyForm = new Wizyty();
-             wizytyForm.ShowDialog();
+             wizytyForm.Show();
             
 
         }
