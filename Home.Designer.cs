@@ -65,7 +65,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(12, 102);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(673, 156);
+            this.panel2.Size = new System.Drawing.Size(721, 156);
             this.panel2.TabIndex = 1;
             // 
             // buttonAppointment
@@ -118,7 +118,7 @@
             this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Location = new System.Drawing.Point(12, 264);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(673, 302);
+            this.panel3.Size = new System.Drawing.Size(721, 302);
             this.panel3.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -304,10 +304,12 @@
             // Home
             // 
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(696, 571);
+            this.ClientSize = new System.Drawing.Size(744, 571);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.MaximumSize = new System.Drawing.Size(760, 610);
+            this.MinimumSize = new System.Drawing.Size(760, 610);
             this.Name = "Home";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
