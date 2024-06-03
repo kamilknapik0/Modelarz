@@ -138,12 +138,6 @@
     <Compile Include="Edycja.Designer.cs">
       <DependentUpon>Edycja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Export.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Export.Designer.cs">
-      <DependentUpon>Export.cs</DependentUpon>
-    </Compile>
     <Compile Include="PodgladWizyt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,9 +172,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Edycja.resx">
       <DependentUpon>Edycja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Export.resx">
-      <DependentUpon>Export.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
