@@ -17,6 +17,7 @@ namespace Modelarz
             InitializeComponent();
             label2.Text = selectedDate.ToString("d MMMM yyyy"); 
             LoadVisits(selectedDate);
+            this.Font = new Font("Open Sans", this.Font.Size);
         }
 
         private void LoadVisits(DateTime selectedDate)

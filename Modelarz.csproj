@@ -132,17 +132,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Edycja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Edycja.Designer.cs">
-      <DependentUpon>Edycja.cs</DependentUpon>
-    </Compile>
     <Compile Include="PodgladWizyt.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PodgladWizyt.Designer.cs">
       <DependentUpon>PodgladWizyt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Wizyty.cs">
       <SubType>Form</SubType>
@@ -170,9 +169,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Edycja.resx">
-      <DependentUpon>Edycja.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,14 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Wizyty.resx">
       <DependentUpon>Wizyty.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +214,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\x-png-22.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="add %281%29.png" />
+    <Content Include="add.png" />
+    <Content Include="eee.png" />
+    <Content Include="exit.png" />
+    <Content Include="exit2.png" />
+    <Content Include="export-file.png" />
+    <Content Include="home.png" />
+    <Content Include="ikona.ico" />
+    <Content Include="import.png" />
+    <Content Include="log-.png" />
+    <Content Include="log-out.png" />
+    <Content Include="remove.png" />
+    <Content Include="search-interface-symbol.png" />
+    <Content Include="search.png" />
+    <Content Include="secure.png" />
+    <Content Include="touch.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

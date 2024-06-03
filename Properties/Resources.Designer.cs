@@ -63,19 +63,9 @@ namespace Modelarz.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap x_png_22 {
+        internal static System.Drawing.Bitmap home {
             get {
-                object obj = ResourceManager.GetObject("x-png-22", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap x_png_221 {
-            get {
-                object obj = ResourceManager.GetObject("x-png-221", resourceCulture);
+                object obj = ResourceManager.GetObject("home", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -24,6 +24,7 @@ namespace Modelarz
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.ShowUpDown = true;
             dateTimePicker2.CustomFormat = "HH:mm";
+            this.Font = new Font("Open Sans", this.Font.Size);
 
         }
 

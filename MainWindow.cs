@@ -18,7 +18,7 @@ namespace Modelarz
         public MainWindow()
         {
             InitializeComponent();
-
+            this.Font = new Font("Open Sans", this.Font.Size);
             openHome();
 
         }
@@ -45,13 +45,6 @@ namespace Modelarz
 
         }
 
-        private void buttonEdycja_Click(object sender, EventArgs e)
-        {
-            closeForms();
-
-            openEdycja();
-
-        }
 
         private void buttonExport_Click(object sender, EventArgs e)
         {
@@ -81,7 +74,7 @@ namespace Modelarz
             List<Form> formsToClose = new List<Form>();
             foreach (Form frm in Application.OpenForms)
             {
-                if (frm is Home || frm is Katalog || frm is Edycja)
+                if (frm is Home || frm is Katalog)
                 {
                     formsToClose.Add(frm);
                 }
@@ -117,17 +110,6 @@ namespace Modelarz
             frm.Show();
         }
 
-        void openEdycja()
-        {
-            Edycja frm = new Edycja()
-            {
-                TopLevel = false,
-                Dock = DockStyle.Fill
-            };
-            frm.FormBorderStyle = FormBorderStyle.None;
-            this.panelMain.Controls.Add(frm);
-            frm.Show();
-        }
 
         public DataTable GetDataFromDatabase(string connectionString, string query)
         {

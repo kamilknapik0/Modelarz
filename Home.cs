@@ -24,6 +24,7 @@ namespace Modelarz
         {
             InitializeComponent();
             InitializeTimer();
+            this.Font = new Font("Open Sans", this.Font.Size);
 
             string fileName = "visits.txt";
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);

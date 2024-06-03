@@ -17,6 +17,7 @@ namespace Modelarz
             InitializeComponent();
             LoadData();
             CustomDataGrid();
+            this.Font = new Font("Open Sans", this.Font.Size);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -69,15 +70,15 @@ namespace Modelarz
         {
             if (changeBtn)
             {
-                button1.FlatAppearance.MouseOverBackColor = Color.LightGray;
-                button1.BackColor = Color.FromArgb(247, 247, 247);
+                button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(247, 247, 247);
+                button1.BackColor = Color.LightGray;
                 changeBtn = false;
                 dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             }
             else
             {
-                button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(247, 247, 247);
-                button1.BackColor = Color.LightGray;
+                button1.FlatAppearance.MouseOverBackColor = Color.LightGray;
+                button1.BackColor = Color.FromArgb(247, 247, 247);
                 changeBtn = true;
                 dataGridView1.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
                 rowCountBefore = dataGridView1.Rows.Count - 2;

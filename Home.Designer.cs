@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonAppointment = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -77,11 +78,11 @@
             this.buttonAppointment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.buttonAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonAppointment.Image = ((System.Drawing.Image)(resources.GetObject("buttonAppointment.Image")));
             this.buttonAppointment.Location = new System.Drawing.Point(524, 109);
             this.buttonAppointment.Name = "buttonAppointment";
-            this.buttonAppointment.Size = new System.Drawing.Size(117, 39);
+            this.buttonAppointment.Size = new System.Drawing.Size(80, 39);
             this.buttonAppointment.TabIndex = 3;
-            this.buttonAppointment.Text = "Dodaj wizytę";
             this.buttonAppointment.UseVisualStyleBackColor = false;
             this.buttonAppointment.Click += new System.EventHandler(this.buttonAppointment_Click);
             // 
@@ -308,6 +309,7 @@
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(760, 610);
             this.MinimumSize = new System.Drawing.Size(760, 610);
             this.Name = "Home";
