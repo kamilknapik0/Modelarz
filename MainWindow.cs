@@ -55,10 +55,26 @@ namespace Modelarz
 
         private void buttonExport_Click(object sender, EventArgs e)
         {
-            Main();
 
+            string connectionString = "User Id=msbd4;Password=haslo2024;Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=155.158.112.45)(PORT=1521)))(CONNECT_DATA=(SID=oltpstud)))";
+
+            string sqlQuery = "select p.pacjent_id, p.imie, p.nazwisko, p.pesel, p.data_urodzenia, m.nr_modelu, m.data_wykonania from pacjenci p join modeleortodontyczne m on p.pacjent_id = m.pacjent_id";
+
+            DataTable dataTable = GetDataFromDatabase(connectionString, sqlQuery);
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx";
+            saveFileDialog.Title = "Save as Excel File";
+            saveFileDialog.FileName = "plik.xlsx";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+                ExportToExcel(dataTable, filePath);
+
+                MessageBox.Show("Eksport danych zakończony sukcesem!");
+            }
         }
-        
+
 
         void closeForms()
         {
@@ -113,40 +129,6 @@ namespace Modelarz
             frm.Show();
         }
 
-        public void Main()
-        {
-            // Your connection string
-            string connectionString = "User Id=msbd4;Password=haslo2024;Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=155.158.112.45)(PORT=1521)))(CONNECT_DATA=(SID=oltpstud)))";
-
-            // Your SQL query
-            string sqlQuery = "select p.pacjent_id, p.imie, p.nazwisko, p.pesel, p.data_urodzenia, m.nr_modelu, m.data_wykonania from pacjenci p join modeleortodontyczne m on p.pacjent_id = m.pacjent_id";
-
-            // Get data from database
-            
-            DataTable dataTable = GetDataFromDatabase(connectionString, sqlQuery);
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx";
-            saveFileDialog.Title = "Save as Excel File";
-            saveFileDialog.FileName = "plik.xlsx";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Export to Excel
-                ExportToExcel(dataTable, saveFileDialog.FileName);
-
-                // Inform the user
-                MessageBox.Show("Dane wyeksportowane pomyslnie!");
-            }
-
-            // Define the file path for the Excel file
-            string filePath = "D:\\plik.xlsx";
-
-            // Export to Excel
-            ExportToExcel(dataTable, filePath);
-
-           
-        }
-
         public DataTable GetDataFromDatabase(string connectionString, string query)
         {
             DataTable dataTable = new DataTable();
@@ -173,10 +155,8 @@ namespace Modelarz
             {
                 var worksheet = package.Workbook.Worksheets.Add("Sheet1");
 
-                // Load the data table into the worksheet, starting at cell A1
                 worksheet.Cells["A1"].LoadFromDataTable(dataTable, true);
 
-                // Save the package to the specified file
                 package.SaveAs(new FileInfo(filePath));
             }
         }
