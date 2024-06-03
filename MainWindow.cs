@@ -50,12 +50,21 @@ namespace Modelarz
 
         }
 
+        private void buttonExport_Click(object sender, EventArgs e)
+        {
+            closeForms();
+
+            openExport();
+
+        }
+        
+
         void closeForms()
         {
             List<Form> formsToClose = new List<Form>();
             foreach (Form frm in Application.OpenForms)
             {
-                if (frm is Home || frm is Katalog || frm is Edycja)
+                if (frm is Home || frm is Katalog || frm is Edycja || frm is Export)
                 {
                     formsToClose.Add(frm);
                 }
@@ -103,9 +112,18 @@ namespace Modelarz
             frm.Show();
         }
 
-        private void buttonExport_Click(object sender, EventArgs e)
-        {
+        
 
+        void openExport()
+        {
+            Export frm = new Export()
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill
+            };
+            frm.FormBorderStyle = FormBorderStyle.None;
+            this.panelMain.Controls.Add(frm);
+            frm.Show();
         }
     }
 }
