@@ -136,8 +136,6 @@ namespace Modelarz
                 for (int i = 0; i < diffrence; i++)
                 {
                     con.Open();
-                    
-                   
                     string imie = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["Imie"].Value.ToString();
                     string nazwisko = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["Nazwisko"].Value.ToString();
                     string pesel = dataGridView1.Rows[dataGridView1.Rows.Count - j].Cells["pesel"].Value.ToString();

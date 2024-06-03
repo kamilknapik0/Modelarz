@@ -12,9 +12,26 @@ namespace Modelarz
 {
     public partial class PodgladWizyt : Form
     {
-        public PodgladWizyt()
+        public PodgladWizyt(DateTime selectedDate)
         {
             InitializeComponent();
+            label2.Text = selectedDate.ToString("d MMMM yyyy"); 
+            LoadVisits(selectedDate);
         }
+
+        private void LoadVisits(DateTime selectedDate)
+        {
+
+            for (int i = 0; i < Home.dataArray.GetLength(0); i++)
+            {
+                if (Home.dataArray[i, 0].Equals(selectedDate.ToString("dd-MM-yyyy")))
+                {
+                    string text = $"{Home.dataArray[i, 1]} {Home.dataArray[i, 2]}, Godzina: {Home.dataArray[i, 3]}";
+                    listBox1.Items.Add(text);
+                }
+
+            }
+        
+    }
     }
 }

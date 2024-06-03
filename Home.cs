@@ -17,6 +17,7 @@ namespace Modelarz
 {
     public partial class Home : Form
     {
+        public static string[,] dataArray;
 
         public Home()
         {
@@ -113,9 +114,11 @@ namespace Modelarz
                     {
                         Label clickedLabel = sender as Label;
                         string labelText = clickedLabel.Text;
-                        string trimmedString = labelText.Substring(0, labelText.Length - 3);
+                        string trimmedString = labelText.Replace("(W)", "").Trim();
+                       
+                        
                         DateTime selectedDate = new DateTime(year, month, int.Parse(trimmedString));
-                        //dodac wywolanie formularza do dodania wizyty
+                        
                         AddCallendarAppointment(selectedDate);
                     };
                 }
@@ -131,7 +134,7 @@ namespace Modelarz
                 string filePath = directoryPath + fileName;
                 string[,] appointments = LoadDataToArray(filePath);
 
-                string [,] dataArray = LoadDataToArray(filePath);
+                dataArray = LoadDataToArray(filePath);
                 string[,] newDataArray = SortDatesClosestToToday(dataArray);
 
                 tableLayoutPanel2.Controls.Clear();
@@ -171,10 +174,10 @@ namespace Modelarz
 
         public void AddCallendarAppointment(DateTime selectedDate)
         {
-            using (Wizyty wizyty = new Wizyty(selectedDate))
+            using (PodgladWizyt podgladWizyt = new PodgladWizyt(selectedDate))
             {
-                wizyty.ShowDialog();
-                if (wizyty.DialogResult == DialogResult.OK)
+                podgladWizyt.ShowDialog();
+                if (podgladWizyt.DialogResult == DialogResult.OK)
                 {
                     //tu sie bedzie dodawalo wizyte w formularzu wizyta
                     //zapisuje z formularza do pliku/bazy i zaznacza to na kalendarzu

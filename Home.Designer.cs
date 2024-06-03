@@ -70,7 +70,7 @@
             // 
             // buttonAppointment
             // 
-            this.buttonAppointment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.buttonAppointment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.buttonAppointment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAppointment.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.buttonAppointment.FlatAppearance.BorderSize = 0;
@@ -163,7 +163,7 @@
             this.labelMon.Name = "labelMon";
             this.labelMon.Size = new System.Drawing.Size(95, 20);
             this.labelMon.TabIndex = 0;
-            this.labelMon.Text = "Poniedziałek";
+            this.labelMon.Text = "Poniedzialek";
             this.labelMon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelTue
@@ -255,7 +255,7 @@
             // labelDate
             // 
             this.labelDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.labelDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.labelDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelDate.ForeColor = System.Drawing.SystemColors.ControlText;
