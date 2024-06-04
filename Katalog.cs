@@ -108,6 +108,14 @@ namespace Modelarz
                         if (row.RowState == DataRowState.Modified)
                         {
                             string updatePacjenciQuery = "UPDATE pacjenci SET imie = :imie, nazwisko = :nazwisko, pesel = :pesel, data_urodzenia = :data_urodzenia WHERE pacjent_id = :pacjent_id";
+
+                            DateTime dataWykonania;
+                            if (!DateTime.TryParse(row["data_wykonania"].ToString(), out dataWykonania))
+                            {
+                                MessageBox.Show("Podano niepoprawną datę wykonania: " + row["data_wykonania"].ToString(), "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
                             using (OracleCommand cmdPacjenci = new OracleCommand(updatePacjenciQuery, con))
                             {
                                 cmdPacjenci.Parameters.Add("imie", OracleDbType.Varchar2).Value = row["imie"];
