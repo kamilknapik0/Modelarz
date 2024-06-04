@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,13 +20,15 @@ namespace Modelarz
 
         public MainWindow()
         {
+            
             InitializeComponent();
-            this.Font = new Font("Open Sans", this.Font.Size);
             openHome();
+            this.Font = FontManager.GetFont(this.Font.Size);
+
 
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        public void btnExit_Click(object sender, EventArgs e)
         {
             Close();
 
@@ -71,7 +74,7 @@ namespace Modelarz
         }
 
 
-        void closeForms()
+        public void closeForms()
         {
             List<Form> formsToClose = new List<Form>();
             foreach (Form frm in Application.OpenForms)
@@ -88,7 +91,7 @@ namespace Modelarz
             }
         }
 
-        void openHome()
+        public void openHome()
         {
             Home frm = new Home()
             {
@@ -185,6 +188,24 @@ namespace Modelarz
         private void siticoneButton4_MouseEnter(object sender, EventArgs e)
         {
             siticoneButton4.Cursor = Cursors.Hand;
+        }
+    }
+
+    public static class FontManager
+    {
+        private static PrivateFontCollection privateFonts = new PrivateFontCollection();
+
+        static FontManager()
+        {
+            string fileName = "open-sans.semibold.ttf";
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+            privateFonts.AddFontFile(filePath);
+        }
+
+        public static Font GetFont(float size)
+        {
+            // Zwróć czcionkę o określonym rozmiarze
+            return new Font(privateFonts.Families[0], size);
         }
     }
 }

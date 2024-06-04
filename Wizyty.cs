@@ -16,6 +16,7 @@ namespace Modelarz
     public partial class Wizyty : Form
     {
        
+        
 
 
         public Wizyty()
@@ -118,6 +119,7 @@ namespace Modelarz
         {
             siticoneButton2.Cursor = Cursors.Hand;
         }
-       
+
+  
     }
 }

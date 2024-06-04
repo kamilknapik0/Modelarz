@@ -241,6 +241,7 @@
       <DependentUpon>Wizyty.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Modelarz_TemporaryKey.pfx" />
+    <None Include="open-sans.semibold.ttf" />
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -13,13 +13,14 @@ namespace Modelarz
         private bool changeBtn = false;
         private int rowCountBefore;
 
+
         public Katalog()
         {
             InitializeComponent();
             LoadData();
             CustomDataGrid();
             this.Font = new Font("Open Sans", this.Font.Size);
-            
+
         }
 
         private void siticoneTextBox1_TextChanged(object sender, EventArgs e)
@@ -61,12 +62,14 @@ namespace Modelarz
             dataGridView1.Columns[5].HeaderText = "Nr modelu";
             dataGridView1.Columns[6].HeaderText = "Data wykonania";
 
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = FontManager.GetFont(9F);
+            dataGridView1.RowHeadersDefaultCellStyle.Font = FontManager.GetFont(9F);
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
-                col.HeaderCell.Style.Font = new Font("Microsoft Sans Serif", 9F);
+                col.HeaderCell.Style.Font = FontManager.GetFont(9F);
             }
 
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(227, 227, 227);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -228,6 +231,10 @@ namespace Modelarz
             siticoneTextBox1.Text = "";
         }
 
-        
+
+    
+
+
+
     }
 }
