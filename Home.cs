@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
+using Siticone.Desktop.UI.WinForms;
 
 
 
@@ -284,5 +285,14 @@ namespace Modelarz
 
         }
 
+        private void siticoneButton1_Click(object sender, EventArgs e)
+        {
+            buttonAppointment_Click(sender, e);
+        }
+
+        private void siticoneButton1_MouseEnter(object sender, EventArgs e)
+        {
+            siticoneButton1.Cursor = Cursors.Hand;
+        }
     }
 }

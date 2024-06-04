@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Siticone.Desktop.UI.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,8 +12,12 @@ using System.Windows.Forms;
 
 namespace Modelarz
 {
+
     public partial class Wizyty : Form
     {
+       
+
+
         public Wizyty()
         {
             InitializeComponent();
@@ -72,7 +77,6 @@ namespace Modelarz
         {
             SaveDataToFile();
             ClearData();
-            
 
         }
 
@@ -95,5 +99,25 @@ namespace Modelarz
             dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 0, 0);
         }
 
+        private void siticoneButton1_Click(object sender, EventArgs e)
+        {
+            button2_Click(sender, e);
+        }
+
+        private void siticoneButton2_Click(object sender, EventArgs e)
+        {
+            button1_Click(sender, e); 
+        }
+
+        private void siticoneButton1_MouseEnter(object sender, EventArgs e)
+        {
+            siticoneButton1.Cursor = Cursors.Hand;
+        }
+
+        private void siticoneButton2_MouseEnter(object sender, EventArgs e)
+        {
+            siticoneButton2.Cursor = Cursors.Hand;
+        }
+       
     }
 }

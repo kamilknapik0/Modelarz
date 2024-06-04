@@ -13,8 +13,10 @@ using System.Windows.Forms;
 
 namespace Modelarz
 {
+
     public partial class MainWindow : Form
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace Modelarz
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             closeForms();
 
@@ -141,6 +143,48 @@ namespace Modelarz
 
                 package.SaveAs(new FileInfo(filePath));
             }
+        }
+
+        //widoczne przyciski
+
+        private void siticoneButton2_Click(object sender, EventArgs e)
+        {
+            buttonKatalog_Click(sender, e); 
+        }
+
+        public void siticoneButton1_Click(object sender, EventArgs e)
+        {
+            button1_Click(sender, e);
+        }
+
+        private void siticoneButton3_Click(object sender, EventArgs e)
+        {
+            buttonExport_Click(sender, e);
+        }
+
+        private void siticoneButton1_MouseEnter(object sender, EventArgs e)
+        {
+            siticoneButton1.Cursor = Cursors.Hand;
+        }
+
+        private void siticoneButton2_MouseEnter(object sender, EventArgs e)
+        {
+            siticoneButton2.Cursor = Cursors.Hand;
+        }
+
+        private void siticoneButton3_MouseEnter(object sender, EventArgs e)
+        {
+            siticoneButton3.Cursor = Cursors.Hand;
+        }
+
+        private void siticoneButton4_Click(object sender, EventArgs e)
+        {
+            btnExit_Click(sender, e);
+        }
+
+        private void siticoneButton4_MouseEnter(object sender, EventArgs e)
+        {
+            siticoneButton4.Cursor = Cursors.Hand;
         }
     }
 }

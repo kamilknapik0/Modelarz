@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using Siticone.Desktop.UI.WinForms; 
 
 namespace Modelarz
 {
@@ -18,11 +19,13 @@ namespace Modelarz
             LoadData();
             CustomDataGrid();
             this.Font = new Font("Open Sans", this.Font.Size);
+            
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void siticoneTextBox1_TextChanged(object sender, EventArgs e)
         {
-            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("imie LIKE '%{0}%' OR nazwisko LIKE '%{0}%' OR pesel LIKE '%{0}%' OR nr_modelu LIKE '%{0}%'", textBox1.Text);
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("imie LIKE '%{0}%' OR nazwisko LIKE '%{0}%' OR pesel LIKE '%{0}%' OR nr_modelu LIKE '%{0}%'", siticoneTextBox1.Text);
+
         }
 
         private void Katalog_Load()
@@ -70,15 +73,15 @@ namespace Modelarz
         {
             if (changeBtn)
             {
-                button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(247, 247, 247);
-                button1.BackColor = Color.LightGray;
+                
+                siticoneButton1.FillColor = Color.LightGray;
+
                 changeBtn = false;
                 dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             }
             else
             {
-                button1.FlatAppearance.MouseOverBackColor = Color.LightGray;
-                button1.BackColor = Color.FromArgb(247, 247, 247);
+                siticoneButton1.FillColor = Color.FromArgb(247, 247, 247);
                 changeBtn = true;
                 dataGridView1.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
                 rowCountBefore = dataGridView1.Rows.Count - 2;
@@ -153,10 +156,21 @@ namespace Modelarz
                     transaction.Commit();
                     MessageBox.Show("Zmiany zostały zapisane.");
                 }
+                catch (OracleException ex)
+                {
+                    if(ex.Number == 1400)
+                    {
+                        MessageBox.Show("Proszę wypelnic puste pola");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Inny błąd bazy danych: " + ex.Message);
+                    }
+                }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
-                    MessageBox.Show("Błąd podczas zapisywania zmian: " + ex.Message);
+                    MessageBox.Show("Błąd podczas zapisywania zmian");
                 }
                 finally
                 {
@@ -190,6 +204,28 @@ namespace Modelarz
                 }
                 con.Close();
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //widoczne przyciski
+        private void siticoneButton1_Click(object sender, EventArgs e)
+        {
+            button1_Click(sender, e);
+        }
+
+        private void siticoneButton2_Click(object sender, EventArgs e)
+        {
+            button2_Click(sender, e);
+        }
+
+        private void siticoneButton3_Click(object sender, EventArgs e)
+        {
+            button3_Click(sender, e); 
+            siticoneTextBox1.Text = "";
         }
 
         

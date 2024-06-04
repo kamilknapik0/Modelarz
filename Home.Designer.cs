@@ -49,11 +49,30 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel3 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel4 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel5 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel6 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel7 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel8 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel9 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel10 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel11 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel12 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel13 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel14 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticonePanel15 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.siticonePanel1.SuspendLayout();
+            this.siticonePanel2.SuspendLayout();
+            this.siticonePanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -61,8 +80,9 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.siticonePanel2);
+            this.panel2.Controls.Add(this.siticoneButton1);
             this.panel2.Controls.Add(this.buttonAppointment);
-            this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(12, 102);
             this.panel2.Name = "panel2";
@@ -84,6 +104,7 @@
             this.buttonAppointment.Size = new System.Drawing.Size(80, 39);
             this.buttonAppointment.TabIndex = 3;
             this.buttonAppointment.UseVisualStyleBackColor = false;
+            this.buttonAppointment.Visible = false;
             this.buttonAppointment.Click += new System.EventHandler(this.buttonAppointment_Click);
             // 
             // tableLayoutPanel2
@@ -93,12 +114,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 53);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 5);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(475, 100);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(474, 100);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // label3
@@ -116,7 +137,13 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.tableLayoutPanel1);
+            this.panel3.Controls.Add(this.siticonePanel9);
+            this.panel3.Controls.Add(this.siticonePanel8);
+            this.panel3.Controls.Add(this.siticonePanel7);
+            this.panel3.Controls.Add(this.siticonePanel6);
+            this.panel3.Controls.Add(this.siticonePanel5);
+            this.panel3.Controls.Add(this.siticonePanel4);
+            this.panel3.Controls.Add(this.siticonePanel3);
             this.panel3.Location = new System.Drawing.Point(12, 264);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(721, 302);
@@ -141,7 +168,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelSat, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelSun, 6, 0);
             this.tableLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 45);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809F));
@@ -255,14 +282,14 @@
             // 
             // labelDate
             // 
-            this.labelDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.labelDate.BackColor = System.Drawing.Color.Transparent;
+            this.labelDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelDate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelDate.Location = new System.Drawing.Point(4, 41);
+            this.labelDate.Location = new System.Drawing.Point(0, 0);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(173, 37);
+            this.labelDate.Size = new System.Drawing.Size(177, 40);
             this.labelDate.TabIndex = 0;
             this.labelDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelDate.Click += new System.EventHandler(this.labelDate_Click);
@@ -286,7 +313,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.labelDate);
+            this.panel4.Controls.Add(this.siticonePanel1);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
@@ -301,6 +328,166 @@
             this.label2.Size = new System.Drawing.Size(142, 28);
             this.label2.TabIndex = 0;
             this.label2.Text = "Ekran główny";
+            // 
+            // siticoneButton1
+            // 
+            this.siticoneButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticoneButton1.BorderRadius = 21;
+            this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticoneButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.siticoneButton1.ForeColor = System.Drawing.Color.White;
+            this.siticoneButton1.Image = ((System.Drawing.Image)(resources.GetObject("siticoneButton1.Image")));
+            this.siticoneButton1.ImageOffset = new System.Drawing.Point(2, 0);
+            this.siticoneButton1.ImageSize = new System.Drawing.Size(35, 35);
+            this.siticoneButton1.Location = new System.Drawing.Point(510, 108);
+            this.siticoneButton1.Name = "siticoneButton1";
+            this.siticoneButton1.Size = new System.Drawing.Size(80, 45);
+            this.siticoneButton1.TabIndex = 4;
+            this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
+            this.siticoneButton1.MouseEnter += new System.EventHandler(this.siticoneButton1_MouseEnter);
+            // 
+            // siticonePanel1
+            // 
+            this.siticonePanel1.BackColor = System.Drawing.Color.Transparent;
+            this.siticonePanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel1.BorderRadius = 10;
+            this.siticonePanel1.BorderThickness = 2;
+            this.siticonePanel1.Controls.Add(this.labelDate);
+            this.siticonePanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel1.Location = new System.Drawing.Point(1, 35);
+            this.siticonePanel1.Name = "siticonePanel1";
+            this.siticonePanel1.Size = new System.Drawing.Size(177, 40);
+            this.siticonePanel1.TabIndex = 1;
+            // 
+            // siticonePanel2
+            // 
+            this.siticonePanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel2.BorderRadius = 10;
+            this.siticonePanel2.BorderThickness = 2;
+            this.siticonePanel2.Controls.Add(this.siticonePanel15);
+            this.siticonePanel2.Controls.Add(this.siticonePanel14);
+            this.siticonePanel2.Controls.Add(this.tableLayoutPanel2);
+            this.siticonePanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel2.Location = new System.Drawing.Point(4, 46);
+            this.siticonePanel2.Name = "siticonePanel2";
+            this.siticonePanel2.Size = new System.Drawing.Size(490, 110);
+            this.siticonePanel2.TabIndex = 5;
+            // 
+            // siticonePanel3
+            // 
+            this.siticonePanel3.BorderRadius = 10;
+            this.siticonePanel3.BorderThickness = 2;
+            this.siticonePanel3.Controls.Add(this.siticonePanel13);
+            this.siticonePanel3.Controls.Add(this.siticonePanel12);
+            this.siticonePanel3.Controls.Add(this.siticonePanel11);
+            this.siticonePanel3.Controls.Add(this.siticonePanel10);
+            this.siticonePanel3.Controls.Add(this.tableLayoutPanel1);
+            this.siticonePanel3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel3.Location = new System.Drawing.Point(3, 29);
+            this.siticonePanel3.Name = "siticonePanel3";
+            this.siticonePanel3.Size = new System.Drawing.Size(680, 230);
+            this.siticonePanel3.TabIndex = 4;
+            // 
+            // siticonePanel4
+            // 
+            this.siticonePanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel4.Location = new System.Drawing.Point(105, 47);
+            this.siticonePanel4.Name = "siticonePanel4";
+            this.siticonePanel4.Size = new System.Drawing.Size(1, 207);
+            this.siticonePanel4.TabIndex = 5;
+            // 
+            // siticonePanel5
+            // 
+            this.siticonePanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel5.Location = new System.Drawing.Point(200, 47);
+            this.siticonePanel5.Name = "siticonePanel5";
+            this.siticonePanel5.Size = new System.Drawing.Size(1, 207);
+            this.siticonePanel5.TabIndex = 6;
+            // 
+            // siticonePanel6
+            // 
+            this.siticonePanel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel6.Location = new System.Drawing.Point(295, 47);
+            this.siticonePanel6.Name = "siticonePanel6";
+            this.siticonePanel6.Size = new System.Drawing.Size(1, 207);
+            this.siticonePanel6.TabIndex = 7;
+            // 
+            // siticonePanel7
+            // 
+            this.siticonePanel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel7.Location = new System.Drawing.Point(390, 47);
+            this.siticonePanel7.Name = "siticonePanel7";
+            this.siticonePanel7.Size = new System.Drawing.Size(1, 207);
+            this.siticonePanel7.TabIndex = 8;
+            // 
+            // siticonePanel8
+            // 
+            this.siticonePanel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel8.Location = new System.Drawing.Point(485, 47);
+            this.siticonePanel8.Name = "siticonePanel8";
+            this.siticonePanel8.Size = new System.Drawing.Size(1, 207);
+            this.siticonePanel8.TabIndex = 9;
+            // 
+            // siticonePanel9
+            // 
+            this.siticonePanel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel9.Location = new System.Drawing.Point(580, 47);
+            this.siticonePanel9.Name = "siticonePanel9";
+            this.siticonePanel9.Size = new System.Drawing.Size(1, 207);
+            this.siticonePanel9.TabIndex = 10;
+            // 
+            // siticonePanel10
+            // 
+            this.siticonePanel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel10.Location = new System.Drawing.Point(7, 65);
+            this.siticonePanel10.Name = "siticonePanel10";
+            this.siticonePanel10.Size = new System.Drawing.Size(667, 1);
+            this.siticonePanel10.TabIndex = 11;
+            // 
+            // siticonePanel11
+            // 
+            this.siticonePanel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel11.Location = new System.Drawing.Point(7, 104);
+            this.siticonePanel11.Name = "siticonePanel11";
+            this.siticonePanel11.Size = new System.Drawing.Size(667, 1);
+            this.siticonePanel11.TabIndex = 12;
+            // 
+            // siticonePanel12
+            // 
+            this.siticonePanel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel12.Location = new System.Drawing.Point(7, 143);
+            this.siticonePanel12.Name = "siticonePanel12";
+            this.siticonePanel12.Size = new System.Drawing.Size(667, 1);
+            this.siticonePanel12.TabIndex = 13;
+            // 
+            // siticonePanel13
+            // 
+            this.siticonePanel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel13.Location = new System.Drawing.Point(7, 182);
+            this.siticonePanel13.Name = "siticonePanel13";
+            this.siticonePanel13.Size = new System.Drawing.Size(667, 1);
+            this.siticonePanel13.TabIndex = 14;
+            // 
+            // siticonePanel14
+            // 
+            this.siticonePanel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel14.Location = new System.Drawing.Point(165, 4);
+            this.siticonePanel14.Name = "siticonePanel14";
+            this.siticonePanel14.Size = new System.Drawing.Size(1, 103);
+            this.siticonePanel14.TabIndex = 11;
+            // 
+            // siticonePanel15
+            // 
+            this.siticonePanel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.siticonePanel15.Location = new System.Drawing.Point(323, 5);
+            this.siticonePanel15.Name = "siticonePanel15";
+            this.siticonePanel15.Size = new System.Drawing.Size(1, 100);
+            this.siticonePanel15.TabIndex = 12;
             // 
             // Home
             // 
@@ -320,6 +507,9 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panelTop.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.siticonePanel1.ResumeLayout(false);
+            this.siticonePanel2.ResumeLayout(false);
+            this.siticonePanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -346,5 +536,21 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonAppointment;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel2;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel3;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel4;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel5;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel9;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel8;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel7;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel6;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel11;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel10;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel13;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel12;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel15;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel14;
     }
 }
