@@ -91,18 +91,7 @@ namespace Modelarz
             }
         }
 
-        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            if (e.ColumnIndex == dataGridView1.Columns["DataWykonania"].Index) // Sprawdzamy, czy edytowana jest kolumna "DataWykonania"
-            {
-                DateTime dataWykonania;
-                if (!DateTime.TryParse(e.FormattedValue.ToString(), out dataWykonania))
-                {
-                    MessageBox.Show("Podano niepoprawną datę wykonania.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    e.Cancel = true; // Blokujemy zakończenie edycji komórki
-                }
-            }
-        }
+     
 
         // Save data to the database
         private void button2_Click(object sender, EventArgs e)
